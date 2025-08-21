@@ -1,0 +1,202 @@
+.contain-content-card {
+    width: 100%;
+    height: 100vh;
+    /* overflow: hidden; */
+    position: relative;
+    margin: 0 auto;
+}
+
+.line {
+    width: 16%;
+    background: #2c7a4b;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.line-1 {
+    background: #2c7a4bbb;
+}
+
+/* Start */
+.main-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    width: 18vw;
+    height: 24vw;
+    top: 170px;
+    left: 65%;
+    transform: translateX(-50%);
+    cursor: grab;
+    z-index: 10;
+    margin-bottom: 20px !important;
+}
+
+.main-card .contain-detail-card>div {
+    width: 100%;
+    height: 100%;
+    /* màu chính */
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* padding: 20px; */
+}
+
+.lanyard-photo {
+    width: 300px;
+    height: 300px;
+    align-items: start;
+}
+
+.lanyard-photo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+}
+
+.lanyard-info h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.lanyard-info p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.lanyard-footer {
+    font-size: 14px;
+    padding: 6px 0;
+}
+
+
+
+.lanyard-banner {
+    position: absolute;
+    width: 40vw;
+    max-width: 500px;
+    height: 7vh;
+    max-height: 80px;
+    background: #2c7a4b;
+    transform: rotate(-15deg);
+    z-index: -10;
+}
+
+/* Banner 1 */
+.b1 {
+    top: 12vh;
+    left: 31vw;
+    border-top-right-radius: 10vw;
+}
+
+/* Banner 2 */
+.b2 {
+    top: 8vh;
+    left: 50vw;
+    border-bottom-left-radius: 10vw;
+}
+
+/* Media query cho màn hình nhỏ */
+@media (max-width: 768px) {
+    .lanyard-banner {
+        width: 60vw;
+        height: 5vh;
+    }
+
+    .b1 {
+        top: 1vh;
+        left: -15vw;
+        border-top-right-radius: 8vw;
+    }
+
+    .b2 {
+        top: -3vh;
+        left: 12vw;
+        border-bottom-left-radius: 8vw;
+    }
+
+    .lanyard-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+}
+
+/* End */
+.dot-metal {
+    width: 20px;
+    height: 20px;
+    background: #999;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Mobile rất nhỏ (<480px) */
+@media (max-width: 480px) {
+    .main-card {
+        width: 65vw;
+        height: 72vw;
+        top: 100px;
+        left: 50%;
+    }
+}
+
+/* Mobile lớn (480px - 767px) */
+@media (min-width: 480px) and (max-width: 768px) {
+    .main-card {
+        width: 55vw;
+        height: 70vw;
+        top: 110px;
+        left: 50%;
+    }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .main-card {
+        width: 38vw;
+        height: 50vw;
+        top: 110px;
+        left: 50%;
+    }
+}
+
+/* Laptop nhỏ HD (1024px - 1365px) */
+@media (min-width: 1024px) and (max-width: 1365px) {
+    .main-card {
+        width: 30vw;
+        height: 40vw;
+        top: 150px;
+        left: 58%;
+    }
+}
+
+/* Laptop Full HD (1366px - 1919px) */
+@media (min-width: 1366px) and (max-width: 1919px) {
+    .main-card {
+        width: 22vw;
+        height: 28vw;
+        top: 160px;
+        left: 62%;
+    }
+}
+
+/* Màn hình to (>=1920px) */
+@media (min-width: 1920px) {
+    .main-card {
+        width: 18vw;
+        height: 24vw;
+        top: 170px;
+        left: 65%;
+    }
+}

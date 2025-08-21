@@ -1,0 +1,18 @@
+.contain-home {
+    margin-top: 80px;
+    height: 900px;
+}
+
+.home-left {
+    z-index: 10;
+}
+
+.home-right {
+    height: 800px;
+}
+
+@media (max-width: 500px) {
+    .home-right {
+        height: 400px;
+    }
+}
