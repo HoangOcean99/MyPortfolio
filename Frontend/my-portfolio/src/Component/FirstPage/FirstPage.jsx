@@ -53,8 +53,6 @@ export default function FirstPage() {
                 </div>
             </section>
 
-            {/* Placeholders for anchors so navbar links work during demo */}
-            <div id="about" className="" />
             <div id="projects" className="" />
             <div id="skills" className="" />
             <div id="contact" className="" />

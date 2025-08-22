@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import HeaderHero from "./Header";
 import FirstPage from "./FirstPage/FirstPage";
 import AboutMe from "./DetailPage/IntroMyself";
+import Skills from "./SkillPage/Skills";
+import Projects from "./PortfolioPage/Projects";
 
 
 export default function MainFile() {
-
     return (
-        <div className="min-vh-100 vw-100 bg-light" id="home">
+        <div className="w-100 bg-light">
             <HeaderHero />
             <FirstPage />
             <AboutMe />
+            <Skills />
+            <Projects />
         </div>
     );
 }

@@ -5,9 +5,9 @@ import imageMySelf from "../../assets/AnhMyself.jpg"
 
 export default function AboutMe() {
   return (
-    <section className="about-me py-5 bg-light">
+    <section className="about-me py-5 bg-light" id="about">
       <div className="container">
-        <div className="row align-items-center">  
+        <div className="row align-items-center">
           {/* Ảnh bên trái */}
           <div className="col-md-5 col-sm-12 text-center mb-4 mb-md-0">
             <div className="flip-card">
@@ -21,7 +21,7 @@ export default function AboutMe() {
                   />
                 </div>
                 <div className="flip-card-back d-flex align-items-center justify-content-center rounded shadow">
-                  <h3>Xin chào, tôi là Hải 👋</h3>  
+                  <h3>Xin chào, tôi là Hải 👋</h3>
                 </div>
               </div>
             </div>
@@ -41,6 +41,6 @@ export default function AboutMe() {
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }
