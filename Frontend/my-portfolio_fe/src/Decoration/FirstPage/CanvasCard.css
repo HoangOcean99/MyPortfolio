@@ -1,0 +1,6 @@
+.contain-card{
+    cursor: grab;
+}
+.contain-card :active{
+    cursor: grabbing;
+}

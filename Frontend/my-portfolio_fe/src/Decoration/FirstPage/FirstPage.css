@@ -1,5 +1,4 @@
 .contain-home {
-    margin-top: 80px;
     height: 900px;
 }
 
@@ -8,7 +7,7 @@
 }
 
 .home-right {
-    height: 800px;
+    height: 700px;
 }
 
 @media (max-width: 500px) {
