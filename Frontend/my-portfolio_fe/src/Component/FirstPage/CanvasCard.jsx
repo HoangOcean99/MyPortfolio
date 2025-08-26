@@ -5,7 +5,7 @@ import { Line2 } from "three/examples/jsm/lines/Line2.js";
 import { LineGeometry } from "three/examples/jsm/lines/LineGeometry.js";
 import { LineMaterial } from "three/examples/jsm/lines/LineMaterial.js";
 import ImageCard from "../../assets/ImageCard.jpg";
-import '../../Decoration/FirstPage/CanvasCard.css'
+import './CanvasCard.css'
 
 export default function CanvasCard({ imageUrl = ImageCard, cardSize = { w: 3, h: 4, t: 0.12 }, strapLength = -2 }) {
   const mountRef = useRef(null);

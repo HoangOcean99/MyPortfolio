@@ -1,0 +1,81 @@
+/* Container chính */
+.portfolio-dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+    margin: auto;
+}
+
+/* Nút chính */
+.portfolio-btn {
+    background: #444;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+    position: relative;
+    font-size: 30px;
+    margin: auto;
+}
+
+/* Submenu */
+.portfolio-submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+/* Nút con */
+.portfolio-submenu button {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 120px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #555;
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+
+    /* Bắt đầu chồng lên nhau và ẩn */
+    opacity: 0;
+    transform: translate(-50%, -20px);
+}
+
+/* Hover in - Bước 1: rơi xuống cùng Y */
+.portfolio-dropdown:hover .portfolio-submenu button {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover in - Bước 2: tách trái/phải theo X với delay */
+.portfolio-dropdown:hover .portfolio-submenu button:nth-child(1) {
+    transform: translate(-110%, 0);
+    transition: transform 0.3s 0.3s ease, opacity 0.3s ease;
+}
+
+.portfolio-dropdown:hover .portfolio-submenu button:nth-child(2) {
+    transform: translate(10%, 0);
+    transition: transform 0.3s 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover out - Bước 1: tách về giữa (chỉ X, không Y) */
+.portfolio-submenu button:nth-child(1),
+.portfolio-submenu button:nth-child(2) {
+    transition: transform 0.3s ease 0s, opacity 0.3s ease 0.3s;
+    transform: translate(-50%, 0);
+}
+
+/* Hover out - Bước 2: rơi lên và ẩn (chỉ Y + opacity) */
+.portfolio-dropdown:not(:hover) .portfolio-submenu button {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+    transition: transform 0.3s ease 0.3s, opacity 0.3s ease 0.3s;
+}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LanyardCard from "./StudentCardLanyard";
 import CanvasCard from "./CanvasCard";
-import '../../Decoration/FirstPage/FirstPage.css'
+import './FirstPage.css'
 
 export default function FirstPage() {
 

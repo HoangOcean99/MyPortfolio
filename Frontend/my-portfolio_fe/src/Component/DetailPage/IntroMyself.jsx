@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../Decoration/DetailPage/IntroMyself.css"
+import "./IntroMyself.css"
 import imageMySelf from "../../assets/AnhMyself.jpg"
 
 export default function AboutMe() {

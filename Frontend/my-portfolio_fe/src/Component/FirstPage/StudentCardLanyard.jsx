@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import Draggable from "gsap/Draggable";
-import "../../Decoration/FirstPage/StudentCardLanyard.css";
+import "./StudentCardLanyard.css";
 
 gsap.registerPlugin(Draggable);
 

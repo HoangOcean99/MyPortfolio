@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Tilt from "react-parallax-tilt"; // thêm thư viện
 import { FaReact, FaJava, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import { SiJavascript, SiArduino, SiFirebase } from "react-icons/si";
-import "./Projects.css";
+import "./Certification.css";
 
-export default function Projects() {
+export default function Certification() {
   const [filter, setFilter] = useState("All");
 
   const projects = [
