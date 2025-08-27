@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaPhp, FaGitAlt } from "react-icons/fa";
-import Tilt from "react-parallax-tilt"; // thêm thư viện
+import Tilt from "react-parallax-tilt";
+import './Skills.scss'
 
 import {
     SiJavascript,
@@ -47,24 +48,12 @@ export default function Skills() {
                 <h2 className="text-center mb-4 fw-bold">My Skills</h2>
                 {/* Nút chọn filter */}
                 <div className="d-flex justify-content-center mb-4 gap-2">
-                    <button
-                        className={`btn ${filter === "Technical Skills" ? "btn-primary" : "btn-outline-primary"}`}
-                        onClick={() => setFilter("Technical Skills")}
-                    >
-                        Technical Skills
-                    </button>
-                    <button
-                        className={`btn ${filter === "Tools" ? "btn-primary" : "btn-outline-primary"}`}
-                        onClick={() => setFilter("Tools")}
-                    >
-                        Tools
-                    </button>
-                    <button
-                        className={`btn ${filter === "Soft Skills" ? "btn-primary" : "btn-outline-primary"}`}
-                        onClick={() => setFilter("Soft Skills")}
-                    >
-                        Soft Skills
-                    </button>
+                    <div class="d-flex justify-content-center gap-4 flex-wrap">
+                        <a class="click-btn btn-style904" data-hover="Click me" href="#"><span>All</span></a>
+                        <a class="click-btn btn-style904" data-hover="Click me" href="#"><span>Technical Skills</span></a>
+                        <a class="click-btn btn-style904" data-hover="Click me" href="#"><span>Tools</span></a>
+                        <a class="click-btn btn-style904" data-hover="Click me" href="#"><span>Soft Skills</span></a>
+                    </div>
 
                 </div>
                 <div className="row g-4">
@@ -77,14 +66,15 @@ export default function Skills() {
                                 perspective={1000}
                                 className="project-tilt"
                             >
-                                <div className="card text-center bg-secondary h-100 border-0 shadow-sm">
-                                    <div className="row card-body d-flex align-items-center ">
-                                        <div className=" text-light col-6 col-md-4">{skill.icon}</div>
-                                        <div className="col-6 col-md-8">
+                                <div className="card text-center h-100 border-0 shadow-sm">
+                                    <div className="card-body d-flex align-items-center card-skill">
+                                        <div className="icon-skill text-light">{skill.icon}</div>
+                                        <div className="detail-skill">
                                             <h6 className="card-title fw-bold">{skill.name}</h6>
                                             <p className="card-text text-white-50">{skill.type}</p>
                                         </div>
                                     </div>
+
                                 </div>
                             </Tilt>
                         </div>

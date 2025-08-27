@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
+$background: #fafbff;
+$button-width: 140px;
+$border-radius: 5px;
+
+.click-btn {
+    display: flex;
+    width: $button-width;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    line-height: 35px;
+    border: 1px solid;
+    border-radius: $border-radius;
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    transition: all 0.35s;
+    box-sizing: border-box;
+    padding: auto;
+}
+
+.btn-style904 {
+    $btn-color: #dd7e2a;
+    $arrow-background: rgb(223 183 148 / 73%);
+    position: relative;
+    background-color: $btn-color;
+    border-color: $btn-color;
+    color: #fff;
+    overflow: hidden;
+
+    span {
+        position: relative;
+        left: -0.5em;
+        transition: all 0.25s;
+    }
+
+    &::before,
+    &::after {
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: $arrow-background;
+        transition: all 0.25s;
+        color: #fff;
+    }
+
+    &::before {
+        width: 25px;
+        content: "\f054";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "FontAwesome";
+        font-size: 10px;
+        font-weight: bold;
+        text-indent: 5px;
+        border-radius: 50% 0 0 50%;
+        z-index: 1;
+    }
+
+    &::after {
+        width: 100%;
+        transform: translate(100%, 0);
+        content: attr(data-hover);
+        text-align: left;
+        text-indent: 8px;
+    }
+
+    &:hover {
+        border-color: $arrow-background;
+
+        span {
+            left: -100%;
+        }
+
+        &::before {
+            right: 70%;
+        }
+
+        &::after {
+            right: 70%;
+        }
+    }
+}
+
+.card {
+    background: #585050;
+
+}
+
+.card-skill {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    background: #585050;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0;
+    /* tránh padding từ row */
+}
+
+.icon-skill {
+    transition: transform 0.5s ease;
+    z-index: 2;
+}
+
+.detail-skill {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) translateX(-20px);
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    white-space: nowrap;
+    color: white;
+    text-align: left;
+    pointer-events: none;
+    /* tránh ảnh hưởng hover */
+}
+
+.card-skill:hover .icon-skill {
+    transform: translateX(-50px);
+}
+
+.card-skill:hover .detail-skill {
+    opacity: 1;
+    transform: translateX(20px) translateY(-50%);
+    pointer-events: auto;
+}

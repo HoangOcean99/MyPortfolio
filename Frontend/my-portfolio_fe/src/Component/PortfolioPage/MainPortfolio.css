@@ -34,18 +34,32 @@
     position: absolute;
     top: 0;
     left: 50%;
-    width: 120px;
+    /* width: 120px; */
     padding: 6px 12px;
     border: none;
     border-radius: 6px;
-    background: #555;
+    background: transparent;
     color: white;
     cursor: pointer;
     z-index: 2;
 
     /* Bắt đầu chồng lên nhau và ẩn */
-    opacity: 0;
-    transform: translate(-50%, -20px);
+    opacity: 1;
+    transform: translate(-50%, -40px);
+}
+
+.portfolio-submenu button span {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 30px;
+    border-radius: 6px;
+    background: #555;
+    color: white;
+    z-index: 2;
+    margin: auto;
 }
 
 /* Hover in - Bước 1: rơi xuống cùng Y */
@@ -57,12 +71,12 @@
 
 /* Hover in - Bước 2: tách trái/phải theo X với delay */
 .portfolio-dropdown:hover .portfolio-submenu button:nth-child(1) {
-    transform: translate(-110%, 0);
+    transform: translate(-100%, 0);
     transition: transform 0.3s 0.3s ease, opacity 0.3s ease;
 }
 
 .portfolio-dropdown:hover .portfolio-submenu button:nth-child(2) {
-    transform: translate(10%, 0);
+    transform: translate(0%, 0);
     transition: transform 0.3s 0.3s ease, opacity 0.3s ease;
 }
 
@@ -75,7 +89,7 @@
 
 /* Hover out - Bước 2: rơi lên và ẩn (chỉ Y + opacity) */
 .portfolio-dropdown:not(:hover) .portfolio-submenu button {
-    opacity: 0;
-    transform: translate(-50%, -20px);
+    opacity: 1;
+    transform: translate(-50%, -40px);
     transition: transform 0.3s ease 0.3s, opacity 0.3s ease 0.3s;
 }

@@ -17,13 +17,17 @@ export default function MainPortfolio() {
                             className={filter === "Project" ? "btn-active" : ""}
                             onClick={() => setFilter("Project")}
                         >
-                            Projects
+                            <span>
+                                Projects
+                            </span>
                         </button>
                         <button
                             className={filter === "Certification" ? "btn-active" : ""}
                             onClick={() => setFilter("Certification")}
                         >
-                            Certifications
+                            <span>
+                                Certifications
+                            </span>
                         </button>
                     </div>
                 </div>
