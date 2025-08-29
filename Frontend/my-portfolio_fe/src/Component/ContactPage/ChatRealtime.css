@@ -1,9 +1,9 @@
 .contain-chatRealtime {
-    width: 35%;
+    width: 85%;
     height: 550px;
-    margin: auto;
+    margin: auto ;
     background-color: rgba(0, 0, 0, 0.482);
-    padding-top: 20px;
+    padding-top: 30px;
     box-sizing: border-box;
 }
 
@@ -91,6 +91,8 @@
 .contain-chatRealtime .input-login button {
     margin-top: 28px;
     margin-bottom: 10px;
+    background-color: white;
+    color: black;
 }
 
 .contain-chatRealtime .contain-input {

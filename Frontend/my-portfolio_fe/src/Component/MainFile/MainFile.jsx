@@ -5,6 +5,7 @@ import Skills from "../SkillPage/Skills";
 import MainPortfolio from "../PortfolioPage/MainPortfolio";
 import HeaderHero from "./Header";
 import MainContactPage from "../ContactPage/mainContactPage";
+import Footer from "../Footer/Footer";
 
 export default function MainFile() {
   return (
@@ -15,6 +16,7 @@ export default function MainFile() {
       <Skills />
       <MainPortfolio />
       <MainContactPage />
+      <Footer />
     </main>
   );
 }

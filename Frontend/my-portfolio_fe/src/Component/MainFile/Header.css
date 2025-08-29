@@ -19,7 +19,7 @@ nav.navbar {
     margin-right: 7% !important;
 }
 
-ul li {
+ul li.li-header {
     position: relative;
     list-style: none;
     width: 40px;
@@ -34,7 +34,7 @@ ul li {
     transition: 0.5s;
 }
 
-ul li::before {
+ul li.li-header::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -44,7 +44,7 @@ ul li::before {
     transition: 0.5s;
 }
 
-ul li::after {
+ul li.li-header::after {
     content: "";
     position: absolute;
     top: 10px;
@@ -58,27 +58,27 @@ ul li::after {
     opacity: 0;
 }
 
-ul li:hover {
+ul li.li-header:hover {
     width: 180px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0);
 }
 
-ul li:hover::before {
+ul li.li-header:hover::before {
     opacity: 1;
 }
 
-ul li:hover::after {
+ul li.li-header:hover::after {
     opacity: 0.5;
 }
 
-ul li ion-icon {
+ul li.li-header ion-icon {
     color: #777;
     font-size: 1.75em;
     transition: 0.5s;
     transition-delay: 0.25s;
 }
 
-ul li:hover ion-icon {
+ul li.li-header:hover ion-icon {
     transform: scale(0);
     color: #fff;
     transition-delay: 0s;
@@ -88,7 +88,7 @@ ul li span {
     position: absolute;
 }
 
-ul li .title {
+ul li.li-header .title {
     color: #fff;
     font-size: 1.1em;
     letter-spacing: 0.1em;
@@ -98,7 +98,7 @@ ul li .title {
     transition-delay: 0s;
 }
 
-ul li:hover .title {
+ul li.li-header:hover .title {
     transform: scale(1);
     transition-delay: 0.25s;
 }
@@ -116,7 +116,7 @@ ul li:hover .title {
         gap: 10px;
     }
 
-    .navbar .menu-icons li {
+    .navbar .menu-icons li.li-header {
         justify-content: flex-center;
         padding-left: 20px;
     }

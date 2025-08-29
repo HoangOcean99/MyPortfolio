@@ -36,29 +36,29 @@ export default function HeaderHero() {
                 {/* Menu */}
                 <div className="collapse navbar-collapse justify-content-lg-center" id="navbarMenu">
                     <ul className="menu-icons d-flex list-unstyled mx-auto mx-lg-0">
-                        <li style={{ "--i": "#a955ff", "--j": "#ea51ff" }}>
+                        <li style={{ "--i": "#a955ff", "--j": "#ea51ff" }} className="li-header">
                             <span className="icon"><ion-icon name="home-outline"></ion-icon></span>
                             <span className="title">Home</span>
                         </li>
-                        <li style={{ "--i": "#56CCF2", "--j": "#2F80ED" }}>
+                        <li style={{ "--i": "#56CCF2", "--j": "#2F80ED" }} className="li-header">
                             <span className="icon">
                                 <ion-icon name="videocam-outline"></ion-icon>
                             </span>
                             <span className="title">Video</span>
                         </li>
-                        <li style={{ "--i": "#FF9966", "--j": "#FF5E62" }}>
+                        <li style={{ "--i": "#FF9966", "--j": "#FF5E62" }} className="li-header">
                             <span className="icon">
                                 <ion-icon name="camera-outline"></ion-icon>
                             </span>
                             <span className="title">Photo</span>
                         </li>
-                        <li style={{ "--i": "#80FF72", "--j": "#7EE8FA" }}>
+                        <li style={{ "--i": "#80FF72", "--j": "#7EE8FA" }} className="li-header">
                             <span className="icon">
                                 <ion-icon name="share-social-outline"></ion-icon>
                             </span>
                             <span className="title">Share</span>
                         </li>
-                        <li style={{ "--i": "#ffa9c6", "--j": "#f434e2" }}>
+                        <li style={{ "--i": "#ffa9c6", "--j": "#f434e2" }} className="li-header">
                             <span className="icon">
                                 <ion-icon name="heart-outline"></ion-icon>
                             </span>
