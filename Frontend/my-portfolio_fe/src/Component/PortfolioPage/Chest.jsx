@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./Chest.css";
 
-export default function Chest() {
-  const [openDrawer, setOpenDrawer] = useState(null);
+export default function Chest({setFilter}) {
+  const [openDrawer, setOpenDrawer] = useState(-1);
 
   const toggleDrawer = (index) => {
-    setOpenDrawer(index === openDrawer ? null : index);
+    const mainIndex = index === openDrawer ? -1 : index
+    setOpenDrawer(mainIndex);
+    setFilter(mainIndex)
   };
 
   return (
@@ -28,13 +30,13 @@ export default function Chest() {
         onClick={() => toggleDrawer(1)}
       >
         <div className="drawer__structure">
-          <div className="drawer__panel drawer__panel--back">
-            <span>CSS</span>
-          </div>
+          <div className="drawer__panel drawer__panel--back"></div>
           <div className="drawer__panel drawer__panel--bottom"></div>
           <div className="drawer__panel drawer__panel--right"></div>
           <div className="drawer__panel drawer__panel--left"></div>
-          <div className="drawer__panel drawer__panel--front"></div>
+          <div className="drawer__panel drawer__panel--front">
+            <span>Web app</span>
+          </div>
         </div>
       </div>
 
@@ -46,13 +48,13 @@ export default function Chest() {
         onClick={() => toggleDrawer(2)}
       >
         <div className="drawer__structure">
-          <div className="drawer__panel drawer__panel--back">
-            <span>is</span>
-          </div>
+          <div className="drawer__panel drawer__panel--back"></div>
           <div className="drawer__panel drawer__panel--bottom"></div>
           <div className="drawer__panel drawer__panel--right"></div>
           <div className="drawer__panel drawer__panel--left"></div>
-          <div className="drawer__panel drawer__panel--front"></div>
+          <div className="drawer__panel drawer__panel--front">
+            <span>Cross-platform app</span>
+          </div>
         </div>
       </div>
 
@@ -64,17 +66,15 @@ export default function Chest() {
         onClick={() => toggleDrawer(3)}
       >
         <div className="drawer__structure">
-          <div className="drawer__panel drawer__panel--back">
-            {"Awesome".split("").map((letter, i) => (
-              <span key={i} className="letter">
-                {letter}
-              </span>
-            ))}
-          </div>
+          <div className="drawer__panel drawer__panel--back"></div>
           <div className="drawer__panel drawer__panel--bottom"></div>
           <div className="drawer__panel drawer__panel--right"></div>
           <div className="drawer__panel drawer__panel--left"></div>
-          <div className="drawer__panel drawer__panel--front"></div>
+          <div className="drawer__panel drawer__panel--front">
+            <span>
+              Game
+            </span>
+          </div>
         </div>
       </div>
     </div>

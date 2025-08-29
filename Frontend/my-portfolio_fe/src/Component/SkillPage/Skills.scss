@@ -127,11 +127,15 @@ $border-radius: 5px;
     /* tránh ảnh hưởng hover */
 }
 
-.card-skill:hover .icon-skill {
+.card-skill-hover {
+    cursor: pointer;
+}
+
+.card-skill-hover:hover .icon-skill {
     transform: translateX(-50px);
 }
 
-.card-skill:hover .detail-skill {
+.card-skill-hover:hover .detail-skill {
     opacity: 1;
     transform: translateX(20px) translateY(-50%);
     pointer-events: auto;

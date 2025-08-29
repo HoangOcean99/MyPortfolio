@@ -223,45 +223,8 @@
     backface-visibility: visible;
 }
 
-
-.letter {
-    display: inline-block;
-    animation: wave 1s infinite ease-in-out;
-}
-
-.letter:nth-of-type(1) {
-    color: hsl(15, 80%, 50%);
-    animation-delay: 0s;
-}
-
-.letter:nth-of-type(2) {
-    color: hsl(35, 80%, 50%);
-    animation-delay: -0.1s;
-}
-
-.letter:nth-of-type(3) {
-    color: hsl(45, 80%, 50%);
-    animation-delay: -0.2s;
-}
-
-.letter:nth-of-type(4) {
-    color: hsl(90, 80%, 50%);
-    animation-delay: -0.3s;
-}
-
-.letter:nth-of-type(5) {
-    color: hsl(180, 80%, 50%);
-    animation-delay: -0.4s;
-}
-
-.letter:nth-of-type(6) {
-    color: hsl(260, 80%, 50%);
-    animation-delay: -0.5s;
-}
-
-.letter:nth-of-type(7) {
-    color: hsl(320, 80%, 50%);
-    animation-delay: -0.6s;
+.drawer__panel span{
+    color: white;
 }
 
 @keyframes wave {

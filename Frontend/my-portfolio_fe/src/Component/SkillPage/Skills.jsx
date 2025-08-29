@@ -58,7 +58,7 @@ export default function Skills() {
                 </div>
                 <div className="row g-4">
                     {skills.map((skill, index) => (
-                        <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 card-skill-hover">
                             <Tilt
                                 glareEnable={true}
                                 glareMaxOpacity={0.4}
