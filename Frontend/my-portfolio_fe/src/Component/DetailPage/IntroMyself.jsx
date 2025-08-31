@@ -5,7 +5,7 @@ import imageMySelf from "../../assets/AnhMyself.jpg"
 
 export default function AboutMe() {
   return (
-    <section className="about-me py-5 bg-light" id="about">
+    <section className="about-me py-5" id="about">
       <div className="container">
         <div className="row align-items-center">
           {/* Ảnh bên trái */}

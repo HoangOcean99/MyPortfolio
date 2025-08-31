@@ -80,7 +80,7 @@ export default function Projects() {
   }, [filter])
 
   return(
-    <div className="bg-dark text-light" id="projects">
+    <div className="text-light" id="projects">
       <div className="container">
         <div className="row">
           <div className="col-md-3 col-12 mt-5 pt-5 d-flex justify-content-center">
@@ -88,7 +88,7 @@ export default function Projects() {
           </div>
 
           {filter === -1 && (
-            <h1 style={{position: 'absolute'}}>Mở tủ để khám phá những project của tôi</h1>
+            <h1 className='empty-project col-md-9 col-12'>Mở tủ để khám phá những project của tôi</h1>
           )}
 
           <AnimatePresence>

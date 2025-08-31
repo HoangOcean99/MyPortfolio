@@ -4,10 +4,11 @@ import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeom
 import { Line2 } from "three/examples/jsm/lines/Line2.js";
 import { LineGeometry } from "three/examples/jsm/lines/LineGeometry.js";
 import { LineMaterial } from "three/examples/jsm/lines/LineMaterial.js";
-import ImageCard from "../../assets/ImageCard.jpg";
+import ImagerdLight from "../../assets/ImageCardLight.jpg";
+import ImageCardDark from "../../assets/ImageCardDark.png";
 import './CanvasCard.css'
 
-export default function CanvasCard({ imageUrl = ImageCard, cardSize = { w: 3, h: 4, t: 0.12 }, strapLength = -2 }) {
+export default function CanvasCard({ mode, imageUrl = (mode === "dark") ? ImageCardDark : ImagerdLight, cardSize = { w: 3, h: 4, t: 0.12 }, strapLength = -2 }) {
   const mountRef = useRef(null);
   const rafRef = useRef(0);
 
@@ -19,12 +20,13 @@ export default function CanvasCard({ imageUrl = ImageCard, cardSize = { w: 3, h:
     const height = mount.clientHeight;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xffffff);
+    // scene.background = new THREE.Color(0xffffff);
 
     const camera = new THREE.PerspectiveCamera(35, width / height, 0.1, 100);
     camera.position.set(0, 0, 10);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setClearColor(0x000000, 0);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(width, height);
     mount.appendChild(renderer.domElement);
@@ -79,7 +81,7 @@ export default function CanvasCard({ imageUrl = ImageCard, cardSize = { w: 3, h:
     scene.add(swingGroup);
 
     // Straps
-    const strapMat = new LineMaterial({ color: 0x000000, linewidth: 40 });
+    const strapMat = new LineMaterial({ color: 0x1a2a1a, linewidth: 40 });
     strapMat.resolution.set(width, height);
 
     const strapLeft = new Line2(new LineGeometry(), strapMat);
@@ -91,9 +93,9 @@ export default function CanvasCard({ imageUrl = ImageCard, cardSize = { w: 3, h:
     let isDragging = false;
     let last = { x: 0, y: 0 };
     const velocity = { x: 0, y: 0, tiltX: 0, tiltZ: 0 };
-    const stiffness = 40;
+    const stiffness = 50;
     const damping = 4.0;
-    const gravity = 10;
+    const gravity = 3;
     const sensitivity = 0.004;
     const tiltThreshold = 20;
 

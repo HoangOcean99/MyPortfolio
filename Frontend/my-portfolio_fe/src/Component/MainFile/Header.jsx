@@ -9,8 +9,16 @@ const scrollToId = (id) => {
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
-export default function HeaderHero() {
+export default function HeaderHero({ toggleTheme }) {
     const [scrolled, setScrolled] = useState(false);
+    const [showSettings, setShowSettings] = useState(false);
+    const textButtonDarkMode = ['⛅ Close Dark Mode', '🌙 Open Dark Mode'];
+    const [indexDarkMode, setIndexDarkMode] = useState(0);
+
+    const onClickSelectMode = () => {
+        setIndexDarkMode((indexDarkMode === 0) ? 1 : 0);
+        toggleTheme();
+    }
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 8);
@@ -21,12 +29,31 @@ export default function HeaderHero() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container">
-                <a className="navbar-brand fw-bold fs-4" href="#">My Portfolio</a>
+                <a className="navbar-brand fw-bold fs-4" href="#">Ocean's Portfolio</a>
 
-                {/* Button GitHub (luôn hiện bên phải) */}
-                <a href="https://github.com/yourprofile" target="_blank" className="btn btn-dark d-lg-none ms-auto button-github">
-                    <i className="bi bi-github"></i>
-                </a>
+                <button
+                    onClick={() => setShowSettings(!showSettings)}
+                    className="btn d-lg-none ms-auto button-settings"
+                >
+                    <ion-icon name="settings-outline"></ion-icon>
+                </button>
+                {showSettings && (
+                    <div className="settings-box shadow p-3 rounded bg-light position-absolute end-0 mt-5 me-5" style={{ width: "200px" }}>
+                        <h6 className="mb-2">⚙ Settings</h6>
+                        <hr className="my-2" />
+                        <button
+                            onClick={() => onClickSelectMode()}
+                            className="btn btn-sm btn-outline-dark w-100 mb-2"
+                        >
+                            {textButtonDarkMode[indexDarkMode]}
+                        </button>
+                        <select className="form-select form-select-sm">
+                            <option value="en">English</option>
+                            <option value="vi">Tiếng Việt</option>
+                        </select>
+                    </div>
+                )}
+
 
                 {/* Toggle */}
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
@@ -36,39 +63,51 @@ export default function HeaderHero() {
                 {/* Menu */}
                 <div className="collapse navbar-collapse justify-content-lg-center" id="navbarMenu">
                     <ul className="menu-icons d-flex list-unstyled mx-auto mx-lg-0">
-                        <li style={{ "--i": "#a955ff", "--j": "#ea51ff" }} className="li-header">
+                        <li style={{ "--i": "#8a6aff", "--j": "#5c00b3" }} className="li-header">
                             <span className="icon"><ion-icon name="home-outline"></ion-icon></span>
                             <span className="title">Home</span>
                         </li>
-                        <li style={{ "--i": "#56CCF2", "--j": "#2F80ED" }} className="li-header">
-                            <span className="icon">
-                                <ion-icon name="videocam-outline"></ion-icon>
-                            </span>
-                            <span className="title">Video</span>
+                        <li style={{ "--i": "#2e7d32", "--j": "#064a1f" }} className="li-header">
+                            <span className="icon"><ion-icon name="person-outline"></ion-icon></span>
+                            <span className="title">About Me</span>
                         </li>
-                        <li style={{ "--i": "#FF9966", "--j": "#FF5E62" }} className="li-header">
-                            <span className="icon">
-                                <ion-icon name="camera-outline"></ion-icon>
-                            </span>
-                            <span className="title">Photo</span>
+                        <li style={{ "--i": "#d68933", "--j": "#b35c00" }} className="li-header">
+                            <span className="icon"><ion-icon name="bulb-outline"></ion-icon></span>
+                            <span className="title">My Skills</span>
                         </li>
-                        <li style={{ "--i": "#80FF72", "--j": "#7EE8FA" }} className="li-header">
-                            <span className="icon">
-                                <ion-icon name="share-social-outline"></ion-icon>
-                            </span>
-                            <span className="title">Share</span>
+                        <li style={{ "--i": "#2196f3", "--j": "#01579b" }} className="li-header">
+                            <span className="icon"><ion-icon name="briefcase-outline"></ion-icon></span>
+                            <span className="title">My Projects</span>
                         </li>
-                        <li style={{ "--i": "#ffa9c6", "--j": "#f434e2" }} className="li-header">
-                            <span className="icon">
-                                <ion-icon name="heart-outline"></ion-icon>
-                            </span>
-                            <span className="title">Like</span>
+                        <li style={{ "--i": "#c2185b", "--j": "#880e4f" }} className="li-header">
+                            <span className="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                            <span className="title">Contact</span>
                         </li>
                     </ul>
-                    {/* Button GitHub (chỉ hiện desktop) */}
-                    <a href="https://github.com/yourprofile" target="_blank" className="btn btn-dark d-none d-lg-block ms-auto button-github">
-                        <i className="bi bi-github"></i>
-                    </a>
+
+
+
+                    <button
+                        onClick={() => setShowSettings(!showSettings)}
+                        className="btn ms-auto button-settings d-none d-lg-block">
+                        <ion-icon name="settings-outline"></ion-icon>
+                    </button>
+                    {showSettings && (
+                        <div className="settings-box shadow p-3 rounded bg-light position-absolute end-0 mt-5 me-5" style={{ width: "200px" }}>
+                            <h6 className="mb-2">⚙ Settings</h6>
+                            <hr className="my-2" />
+                            <button
+                                onClick={() => onClickSelectMode()}
+                                className="btn btn-sm btn-outline-dark w-100 mb-2"
+                            >
+                                {textButtonDarkMode[indexDarkMode]}
+                            </button>
+                            <select className="form-select form-select-sm">
+                                <option value="en">English</option>
+                                <option value="vi">Tiếng Việt</option>
+                            </select>
+                        </div>
+                    )}
                 </div>
             </div>
         </nav>

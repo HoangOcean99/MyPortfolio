@@ -14,7 +14,7 @@ export default function ChatRealTime() {
     ]);
 
     return (
-        <div className='contain-chatRealtime'>
+        <div className='contain-chatRealtime mt-3'>
             <div className='title'>
                 <h2>Room chat</h2>
             </div>

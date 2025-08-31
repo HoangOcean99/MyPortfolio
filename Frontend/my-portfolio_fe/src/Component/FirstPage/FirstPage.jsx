@@ -3,7 +3,7 @@ import LanyardCard from "./StudentCardLanyard";
 import CanvasCard from "./CanvasCard";
 import './FirstPage.css'
 
-export default function FirstPage() {
+export default function FirstPage({mode}) {
 
     return (
         <div className="min-vh-50 vw-100" id="home">
@@ -13,14 +13,14 @@ export default function FirstPage() {
                 <div className="row align-items-center px-5 g-5">
                     {/* Left: text */}
                     <div className="col-md-6 order-2 order-md-1 home-left mt-4">
-                        <h3 className="text-muted mt-3">
+                        <h3 className="mt-3">
                             Hello world, I'm
                         </h3>
                         <h1 className="fw-bold display-5">Hoang Hai Duong</h1>
-                        <h2 className="text-muted mt-3">
+                        <h2 className="mt-3">
                             Fullstack developer
                         </h2>
-                        <h4 className="text-muted mt-3">
+                        <h4 className="mt-3">
                             Welcome to My personal website
                         </h4>
 
@@ -47,7 +47,7 @@ export default function FirstPage() {
 
                     {/* Right: card / avatar */}
                     <div className="col-md-6 order-1 order-md-2 mb-5 mb-md-0 home-right">
-                        <CanvasCard />
+                        <CanvasCard mode = {mode}/>
                         {/* <LanyardCard/> */}
                     </div>
                 </div>

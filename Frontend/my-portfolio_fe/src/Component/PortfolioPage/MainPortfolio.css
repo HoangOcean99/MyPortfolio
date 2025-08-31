@@ -8,16 +8,18 @@
 
 /* Nút chính */
 .portfolio-btn {
-    background: #444;
-    color: white;
+    /* background: #444; */
     padding: 8px 20px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
     z-index: 20;
     position: relative;
-    font-size: 30px;
+    font-size: 40px;
     margin: auto;
+    background-color: transparent !important;
+    border: 2px solid grey;
+    color: var(--text-color);
 }
 
 /* Submenu */
@@ -39,12 +41,11 @@
     border: none;
     border-radius: 6px;
     background: transparent;
-    color: white;
     cursor: pointer;
     z-index: 2;
-
+    font-size: 20px;
     /* Bắt đầu chồng lên nhau và ẩn */
-    opacity: 1;
+    opacity: 0;
     transform: translate(-50%, -40px);
 }
 
@@ -56,8 +57,9 @@
     width: 150px;
     height: 30px;
     border-radius: 6px;
-    background: #555;
-    color: white;
+    border: 2px solid grey;
+    color: var(--text-color) !important;
+    /* background: #555; */
     z-index: 2;
     margin: auto;
 }
@@ -89,7 +91,7 @@
 
 /* Hover out - Bước 2: rơi lên và ẩn (chỉ Y + opacity) */
 .portfolio-dropdown:not(:hover) .portfolio-submenu button {
-    opacity: 1;
+    opacity: 0 !important;
     transform: translate(-50%, -40px);
     transition: transform 0.3s ease 0.3s, opacity 0.3s ease 0.3s;
 }

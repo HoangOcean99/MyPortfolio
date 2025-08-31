@@ -4,9 +4,11 @@ nav.navbar {
     left: 0;
     width: 100%;
     z-index: 999;
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--bg-header);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid #ddd;
+}
+.navbar-brand{
+    color: var(--text-button) !important;
 }
 
 .menu-icons {
@@ -24,7 +26,7 @@ ul li.li-header {
     list-style: none;
     width: 40px;
     height: 40px;
-    background: rgb(241, 241, 241);
+    background: var(--bg-button);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     border-radius: 60px;
     cursor: pointer;
@@ -72,7 +74,7 @@ ul li.li-header:hover::after {
 }
 
 ul li.li-header ion-icon {
-    color: #777;
+    color: var(--text-button);
     font-size: 1.75em;
     transition: 0.5s;
     transition-delay: 0.25s;
@@ -103,9 +105,18 @@ ul li.li-header:hover .title {
     transition-delay: 0.25s;
 }
 
-.button-github {
+.button-settings {
     border-radius: 50%;
+    padding-top: 10px;
+    background-color: var(--bg-button);
+    color: var(--text-button);
 }
+
+.settings-box {
+    z-index: 1000;
+    margin-top: 180px !important;
+}
+
 
 /* Desktop (mặc định) giữ nguyên */
 
@@ -118,10 +129,10 @@ ul li.li-header:hover .title {
 
     .navbar .menu-icons li.li-header {
         justify-content: flex-center;
-        padding-left: 20px;
+        margin-left: 15px;
     }
 
-    .button-github {
+    .button-settings {
         margin-right: 10px;
     }
 }

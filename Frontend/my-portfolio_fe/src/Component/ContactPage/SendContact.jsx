@@ -2,7 +2,7 @@ import './SendContact.css'
 
 export default function SendContact() {
     return (
-        <form className='contain-sendContact'>
+        <form className='contain-sendContact mt-3'>
             <h3>Contact me</h3>
             <div className='sendContact-name'>
                 <label>Fullname</label>
@@ -16,7 +16,7 @@ export default function SendContact() {
                 <label>Message</label>
                 <textarea rows={5} placeholder='input message...'/>
             </div>
-            <button className='btn btn-success button-contact'>Send</button>
+            <button className='button-contact' style={{background: '#11BA11'}} >Send</button>
         </form>
     );
 }

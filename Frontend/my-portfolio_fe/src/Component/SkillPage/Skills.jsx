@@ -43,42 +43,35 @@ export default function Skills() {
     const [filter, setFilter] = useState();
 
     return (
-        <div className="bg-dark text-light py-5">
-            <div className="container">
-                <h2 className="text-center mb-4 fw-bold">My Skills</h2>
-                {/* Nút chọn filter */}
-                <div className="d-flex justify-content-center mb-4 gap-2">
-                    <div class="d-flex justify-content-center gap-4 flex-wrap">
-                        <a class="click-btn btn-style904" data-hover="Click me" href="#"><span>All</span></a>
-                        <a class="click-btn btn-style904" data-hover="Click me" href="#"><span>Technical Skills</span></a>
-                        <a class="click-btn btn-style904" data-hover="Click me" href="#"><span>Tools</span></a>
-                        <a class="click-btn btn-style904" data-hover="Click me" href="#"><span>Soft Skills</span></a>
-                    </div>
+        <div className="contain-skills">
+            <div className="text-light py-5">
+                <div className="container">
+                    <h2 className="text-center mb-4 fw-bold">My Skills</h2>
+                    {/* Nút chọn filter */}
+                    <div className="d-flex justify-content-center mb-4 gap-2">
+                        <div class="d-flex justify-content-center gap-4 flex-wrap">
+                            <a class="click-btn btn-style904" data-hover="Click me" href="#"><span>All</span></a>
+                            <a class="click-btn btn-style904" data-hover="Click me" href="#"><span>Technical Skills</span></a>
+                            <a class="click-btn btn-style904" data-hover="Click me" href="#"><span>Tools</span></a>
+                            <a class="click-btn btn-style904" data-hover="Click me" href="#"><span>Soft Skills</span></a>
+                        </div>
 
-                </div>
-                <div className="row g-4">
-                    {skills.map((skill, index) => (
-                        <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 card-skill-hover">
-                            <Tilt
-                                glareEnable={true}
-                                glareMaxOpacity={0.4}
-                                scale={1.05}
-                                perspective={1000}
-                                className="project-tilt"
-                            >
-                                <div className="card text-center h-100 border-0 shadow-sm">
+                    </div>
+                    <div className="row g-4">
+                        {skills.map((skill, index) => (
+                            <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 card-skill-hover">
+                                <div className="text-center h-100 border-0 shadow-sm">
                                     <div className="card-body d-flex align-items-center card-skill">
                                         <div className="icon-skill text-light">{skill.icon}</div>
                                         <div className="detail-skill">
                                             <h6 className="card-title fw-bold">{skill.name}</h6>
-                                            <p className="card-text text-white-50">{skill.type}</p>
+                                            <p className="card-text">{skill.type}</p>
                                         </div>
                                     </div>
-
                                 </div>
-                            </Tilt>
-                        </div>
-                    ))}
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
