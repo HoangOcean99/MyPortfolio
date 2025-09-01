@@ -49,11 +49,11 @@ export default function Skills() {
                     <h2 className="text-center mb-4 fw-bold">My Skills</h2>
                     {/* Nút chọn filter */}
                     <div className="d-flex justify-content-center mb-4 gap-2">
-                        <div class="d-flex justify-content-center gap-4 flex-wrap">
-                            <a class="click-btn btn-style904" data-hover="Click me" href="#"><span>All</span></a>
-                            <a class="click-btn btn-style904" data-hover="Click me" href="#"><span>Technical Skills</span></a>
-                            <a class="click-btn btn-style904" data-hover="Click me" href="#"><span>Tools</span></a>
-                            <a class="click-btn btn-style904" data-hover="Click me" href="#"><span>Soft Skills</span></a>
+                        <div className="d-flex justify-content-center gap-4 flex-wrap">
+                            <a className="click-btn btn-style904" data-hover="Click me" href="#"><span>All</span></a>
+                            <a className="click-btn btn-style904" data-hover="Click me" href="#"><span>Technical Skills</span></a>
+                            <a className="click-btn btn-style904" data-hover="Click me" href="#"><span>Tools</span></a>
+                            <a className="click-btn btn-style904" data-hover="Click me" href="#"><span>Soft Skills</span></a>
                         </div>
 
                     </div>

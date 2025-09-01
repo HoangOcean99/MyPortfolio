@@ -7,7 +7,14 @@ nav.navbar {
     background: var(--bg-header);
     backdrop-filter: blur(10px);
 }
-.navbar-brand{
+
+.navbar-brand {
+    color: var(--text-button) !important;
+}
+.navbar-toggler{
+    background-color: var(--bg-button) !important;
+}
+.navbar-toggler-icon {  
     color: var(--text-button) !important;
 }
 
@@ -115,6 +122,16 @@ ul li.li-header:hover .title {
 .settings-box {
     z-index: 1000;
     margin-top: 180px !important;
+    background-color: var(--bg-color) !important;
+}
+
+.settings-box button {
+    color: var(--text-color);
+}
+
+.settings-box select {
+    color: var(--text-color) !important;
+    background-color: var(--bg-color) !important;
 }
 
 

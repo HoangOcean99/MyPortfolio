@@ -93,7 +93,7 @@ export default function HeaderHero({ toggleTheme }) {
                         <ion-icon name="settings-outline"></ion-icon>
                     </button>
                     {showSettings && (
-                        <div className="settings-box shadow p-3 rounded bg-light position-absolute end-0 mt-5 me-5" style={{ width: "200px" }}>
+                        <div className="settings-box shadow p-3 rounded position-absolute end-0 mt-5 me-5" style={{ width: "200px" }}>
                             <h6 className="mb-2">⚙ Settings</h6>
                             <hr className="my-2" />
                             <button

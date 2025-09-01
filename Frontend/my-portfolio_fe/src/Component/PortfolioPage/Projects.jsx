@@ -79,61 +79,63 @@ export default function Projects() {
     console.log(filter);
   }, [filter])
 
-  return(
+  return (
     <div className="text-light" id="projects">
       <div className="container">
         <div className="row">
-          <div className="col-md-3 col-12 mt-5 pt-5 d-flex justify-content-center">
+          <div className="col-md-3 col-12 mt-5 mb-5 pt-5 d-flex justify-content-center">
             <Chest setFilter={setFilter} />
           </div>
 
-          {filter === -1 && (
-            <h1 className='empty-project col-md-9 col-12'>Mở tủ để khám phá những project của tôi</h1>
-          )}
+          <div className="col-md-9 col-12 position-relative">
+            {filter === -1 && (
+              <h1 className="empty-project">Mở tủ để khám phá những project của tôi</h1>
+            )}
 
-          <AnimatePresence>
-            {filter !== -1 && (
-              <motion.div
-                className="row g-4 col-md-9 col-12"
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                variants={{
-                  hidden: {},
-                  visible: { transition: { staggerChildren: 0.2 } },
-                  exit: { transition: { staggerChildren: 0.1, staggerDirection: -1 } }
-                }}
-              >
-                {projects.filter((p, i) => p.type === filter).map((p, i) => (
-                  <motion.div
-                    key={p.title + i}
-                    className="col-12 col-md-6 col-lg-4"
-                    variants={projectVariants}
-                  >
-                    <Tilt>
-                      <div className="card">
-                        <div className="face face1">
-                          <img src={p.img} alt="" />
-                        </div>
-                        <div className="face face2">
-                          <div className="content">
-                            <h6 className="fw-bold">{p.title}</h6>
-                            <div className="card-subtitle mt-2">Web App</div>
-                            <p className="text-white-50">{p.desc}</p>
-                            <div className="gap-2 mt-2 icon-div">
-                              {p.stack.map((text, idx) => (
-                                <div key={idx} className="tech-icon text-center">{text}</div>
-                              ))}
+            <AnimatePresence>
+              {filter !== -1 && (
+                <motion.div
+                  className="row g-4"
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  variants={{
+                    hidden: {},
+                    visible: { transition: { staggerChildren: 0.2 } },
+                    exit: { transition: { staggerChildren: 0.1, staggerDirection: -1 } }
+                  }}
+                >
+                  {projects.filter((p, i) => p.type === filter).map((p, i) => (
+                    <motion.div
+                      key={p.title + i}
+                      className="col-12 col-md-6 col-lg-4"
+                      variants={projectVariants}
+                    >
+                      <Tilt>
+                        <div className="card">
+                          <div className="face face1">
+                            <img src={p.img} alt="" />
+                          </div>
+                          <div className="face face2">
+                            <div className="content">
+                              <h6 className="fw-bold">{p.title}</h6>
+                              <div className="card-subtitle mt-2">Web App</div>
+                              <p className="text-white-50">{p.desc}</p>
+                              <div className="gap-2 mt-2 icon-div">
+                                {p.stack.map((text, idx) => (
+                                  <div key={idx} className="tech-icon text-center">{text}</div>
+                                ))}
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </Tilt>
-                  </motion.div>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
+                      </Tilt>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </div>

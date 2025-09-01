@@ -21,6 +21,19 @@
   --bg-button-dark: #2a3a2a;
   --text-button-dark: #f0f0f0;
 
+  --text-color-1-dark: hsl(50, 20%, 80%);
+  --text-color-2-dark: hsl(50, 40%, 90%);
+  --text-color-3-dark: hsl(50, 60%, 95%);
+
+  --shadow-1a-dark: hsla(200, 100%, 60%, 0.2);
+  --shadow-1b-dark: hsla(200, 100%, 70%, 0.3);
+  --shadow-2a-dark: hsla(200, 100%, 60%, 0.5);
+  --shadow-2b-dark: hsla(200, 100%, 70%, 0.5);
+  --shadow-3a-dark: hsla(200, 100%, 90%, 0.5);
+
+  --shadow-yellow-dark: hsla(320, 100%, 60%, 0.2);
+  --shadow-blue-dark: hsla(40, 100%, 60%, 0.4);
+
 
   --bg-color-light: linear-gradient(90deg, #e6f3e6 4%, #b3e6b3 20%, #ffffff 35%, #ffffff 65%, #b3d9ff 80%, #e6f0ff 96%);
   --bg-footer-light: rgba(240, 240, 240, 0.7);
@@ -29,6 +42,20 @@
   --primary-accent-light: #6c63ff;
   --bg-button-light: #d9d9d9;
   --text-button-light: #212121;
+
+  --text-color-1-light: hsl(230, 25%, 35%);
+  --text-color-2-light: hsl(230, 40%, 50%);
+  --text-color-3-light: hsl(230, 60%, 65%);
+
+  --shadow-1a-light: hsla(280, 80%, 70%, 0.2);
+  --shadow-1b-light: hsla(280, 70%, 75%, 0.3);
+  --shadow-2a-light: hsla(280, 70%, 65%, 0.4);
+  --shadow-2b-light: hsla(280, 70%, 60%, 0.4);
+  --shadow-3a-light: hsla(280, 80%, 85%, 0.4);
+
+  --shadow-yellow-light: hsla(40, 90%, 65%, 0.25);
+  --shadow-blue-light: hsla(200, 80%, 70%, 0.35);
+
 }
 
 .dark-mode {
@@ -39,6 +66,19 @@
   --primary-accent: var(--primary-accent-dark);
   --bg-button: var(--bg-button-dark);
   --text-button: var(--text-button-dark);
+  --text-color-1: var(--text-color-1-dark);
+  --text-color-2: var(--text-color-2-dark);
+  --text-color-3: var(--text-color-3-dark);
+
+  --shadow-1a: var(--shadow-1a-dark);
+  --shadow-1b: var(--shadow-1b-dark);
+  --shadow-2a: var(--shadow-2a-dark);
+  --shadow-2b: var(--shadow-2b-dark);
+  --shadow-3a: var(--shadow-3a-dark);
+
+  --shadow-yellow: var(--shadow-yellow-dark);
+  --shadow-blue: var(--shadow-blue-dark);
+
 }
 
 .light-mode {
@@ -49,6 +89,18 @@
   --primary-accent: var(--primary-accent-light);
   --bg-button: var(--bg-button-light);
   --text-button: var(--text-button-light);
+  --text-color-1: var(--text-color-1-light);
+  --text-color-2: var(--text-color-2-light);
+  --text-color-3: var(--text-color-3-light);
+
+  --shadow-1a: var(--shadow-1a-light);
+  --shadow-1b: var(--shadow-1b-light);
+  --shadow-2a: var(--shadow-2a-light);
+  --shadow-2b: var(--shadow-2b-light);
+  --shadow-3a: var(--shadow-3a-light);
+
+  --shadow-yellow: var(--shadow-yellow-light);
+  --shadow-blue: var(--shadow-blue-light);
 }
 
 a {

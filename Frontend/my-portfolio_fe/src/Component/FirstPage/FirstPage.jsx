@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import LanyardCard from "./StudentCardLanyard";
 import CanvasCard from "./CanvasCard";
 import './FirstPage.css'
 
-export default function FirstPage({mode}) {
+export default function FirstPage({ mode }) {
 
     return (
         <div className="min-vh-50 vw-100" id="home">
@@ -12,42 +11,53 @@ export default function FirstPage({mode}) {
             <section className="container contain-home">
                 <div className="row align-items-center px-5 g-5">
                     {/* Left: text */}
+
                     <div className="col-md-6 order-2 order-md-1 home-left mt-4">
-                        <h3 className="mt-3">
-                            Hello world, I'm
-                        </h3>
-                        <h1 className="fw-bold display-5">Hoang Hai Duong</h1>
-                        <h2 className="mt-3">
+                        <p class="cursor typewriter-animation">Hello world, I'm</p>
+                        <h1 className="fw-bold display-5">
+                            <h1 class="wave-text">
+                                <span>H</span>
+                                <span>O</span>
+                                <span>A</span>
+                                <span>N</span>
+                                <span>G</span>
+                                <span className="space">&nbsp;</span>
+                                <span>H</span>
+                                <span>A</span>
+                                <span>I</span>
+                                <span className="space">&nbsp;</span>
+                                <span>D</span>
+                                <span>U</span>
+                                <span>O</span>
+                                <span>N</span>
+                                <span>G</span>
+                            </h1>
+                        </h1>
+                        <h2 className="mt-3 fullstack">
                             Fullstack developer
                         </h2>
-                        <h4 className="mt-3">
-                            Welcome to My personal website
-                        </h4>
+                        <div class="marquee">
+                            <h2>Welcome to My personal website</h2>
+                        </div>
+
 
                         {/* Socials */}
                         <div className="mt-4 d-flex gap-3">
-                            <a href="https://github.com/" target="_blank" rel="noreferrer" className="text-dark fs-4">
+                            <a href="#" className="button-downloadCV">
+                                <span>Download CV</span>
+                                <span>Download CV</span>
+                                <span>Download CV</span>
+                                <span>Download CV</span>
+                            </a>
+                            <a href="https://github.com/HoangOcean99" target="_blank" rel="noreferrer" className="fs-1 button-github">
                                 <i className="bi bi-github"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="text-primary fs-4">
-                                <i className="bi bi-linkedin"></i>
-                            </a>
-                            <a
-                                href="#contact"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    scrollToId("contact");
-                                }}
-                                className="text-danger fs-4"
-                            >
-                                <i className="bi bi-envelope-fill"></i>
                             </a>
                         </div>
                     </div>
 
                     {/* Right: card / avatar */}
                     <div className="col-md-6 order-1 order-md-2 mb-5 mb-md-0 home-right">
-                        <CanvasCard mode = {mode}/>
+                        <CanvasCard mode={mode} />
                         {/* <LanyardCard/> */}
                     </div>
                 </div>
