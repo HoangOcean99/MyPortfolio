@@ -1,13 +1,37 @@
-.contain-realtime{
+.contain-realtime {
     margin-top: 200px;
     margin-bottom: 200px;
 }
 
-.contain-mainContactPage{
+.contain-mainContactPage {
     width: 100%;
 }
-.title-mainContact{
+
+.contain-tilte-contact {
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.title-mainContact {
     text-align: center;
     margin: 50px auto;
+    position: relative;
+    display: inline-block;
+    cursor: default;
+}
+
+.title-mainContact::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(to right, #32cd32, black ,#1e90ff);
+    transition: width 0.4s ease;
+}
+
+.title-mainContact:hover::after {
+    width: 100%;
 }

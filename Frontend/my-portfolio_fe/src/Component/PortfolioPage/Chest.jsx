@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Chest.css";
 
-export default function Chest({setFilter}) {
+export default function Chest({ setFilter }) {
   const [openDrawer, setOpenDrawer] = useState(-1);
 
   const toggleDrawer = (index) => {
@@ -31,7 +31,52 @@ export default function Chest({setFilter}) {
       >
         <div className="drawer__structure">
           <div className="drawer__panel drawer__panel--back"></div>
-          <div className="drawer__panel drawer__panel--bottom"></div>
+          <div className="drawer__panel drawer__panel--bottom">
+            <div className="main-project-bottom">
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1011/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1012/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1013/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1014/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1015/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1016/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+            </div>
+          </div>
           <div className="drawer__panel drawer__panel--right"></div>
           <div className="drawer__panel drawer__panel--left"></div>
           <div className="drawer__panel drawer__panel--front">
@@ -49,7 +94,52 @@ export default function Chest({setFilter}) {
       >
         <div className="drawer__structure">
           <div className="drawer__panel drawer__panel--back"></div>
-          <div className="drawer__panel drawer__panel--bottom"></div>
+          <div className="drawer__panel drawer__panel--bottom">
+            <div className="main-project-bottom">
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1021/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1018/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1019/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1020/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1021/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1022/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+            </div>
+          </div>
           <div className="drawer__panel drawer__panel--right"></div>
           <div className="drawer__panel drawer__panel--left"></div>
           <div className="drawer__panel drawer__panel--front">
@@ -67,7 +157,52 @@ export default function Chest({setFilter}) {
       >
         <div className="drawer__structure">
           <div className="drawer__panel drawer__panel--back"></div>
-          <div className="drawer__panel drawer__panel--bottom"></div>
+          <div className="drawer__panel drawer__panel--bottom">
+            <div className="main-project-bottom">
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1023/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1024/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1025/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1026/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1027/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+              <div className="project-bottom">
+                <img
+                  src="https://picsum.photos/id/1028/400/250"
+                  alt="Demo Project"
+                  className="project-img"
+                />
+              </div>
+            </div>
+          </div>
           <div className="drawer__panel drawer__panel--right"></div>
           <div className="drawer__panel drawer__panel--left"></div>
           <div className="drawer__panel drawer__panel--front">

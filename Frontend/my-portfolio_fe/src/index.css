@@ -33,6 +33,9 @@
 
   --shadow-yellow-dark: hsla(320, 100%, 60%, 0.2);
   --shadow-blue-dark: hsla(40, 100%, 60%, 0.4);
+  --flip-back-bg-color-dark: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  --btn-skill-dark: #708090;
+  --btn-skill-hover-dark: #556070;
 
 
   --bg-color-light: linear-gradient(90deg, #e6f3e6 4%, #b3e6b3 20%, #ffffff 35%, #ffffff 65%, #b3d9ff 80%, #e6f0ff 96%);
@@ -44,18 +47,20 @@
   --text-button-light: #212121;
 
   --text-color-1-light: hsl(230, 25%, 35%);
-  --text-color-2-light: hsl(230, 40%, 50%);
-  --text-color-3-light: hsl(230, 60%, 65%);
+  --text-color-2-light: hsl(230, 44%, 23%);
+  --text-color-3-light: hsl(230, 32%, 15%);
 
-  --shadow-1a-light: hsla(280, 80%, 70%, 0.2);
-  --shadow-1b-light: hsla(280, 70%, 75%, 0.3);
-  --shadow-2a-light: hsla(280, 70%, 65%, 0.4);
-  --shadow-2b-light: hsla(280, 70%, 60%, 0.4);
-  --shadow-3a-light: hsla(280, 80%, 85%, 0.4);
+  --shadow-1a-light: hsla(280, 92%, 62%, 0.2);
+  --shadow-1b-light: hsla(280, 67%, 40%, 0.3);
+  --shadow-2a-light: hsla(280, 94%, 58%, 0.4);
+  --shadow-2b-light: hsla(280, 49%, 27%, 0.4);
+  --shadow-3a-light: hsla(280, 51%, 36%, 0.4);
 
   --shadow-yellow-light: hsla(40, 90%, 65%, 0.25);
   --shadow-blue-light: hsla(200, 80%, 70%, 0.35);
-
+  --flip-back-bg-color-light: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  --btn-skill-light: #d9d9d9;
+  --btn-skill-hover-light: #bfbfbf;
 }
 
 .dark-mode {
@@ -78,6 +83,9 @@
 
   --shadow-yellow: var(--shadow-yellow-dark);
   --shadow-blue: var(--shadow-blue-dark);
+  --flip-back-bg-color: var(--flip-back-bg-color-dark);
+  --btn-skill: var(--btn-skill-dark);
+  --btn-skill-hover: var(--btn-skill-hover-dark);
 
 }
 
@@ -101,6 +109,10 @@
 
   --shadow-yellow: var(--shadow-yellow-light);
   --shadow-blue: var(--shadow-blue-light);
+  --flip-back-bg-color: var(--flip-back-bg-color-light);
+  --btn-skill: var(--btn-skill-light);
+  --btn-skill-hover: var(--btn-skill-hover-light);
+
 }
 
 a {
@@ -109,15 +121,11 @@ a {
   text-decoration: inherit;
 }
 
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  min-width: 512px;
   min-height: 100vh;
   background: var(--bg-color) !important;
   color: var(--text-color) !important;
@@ -142,10 +150,6 @@ button {
   /* background-color: #1a1a1a; */
   cursor: pointer;
   transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
 }
 
 button:focus,

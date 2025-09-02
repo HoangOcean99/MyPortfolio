@@ -59,4 +59,13 @@
     height: 40px;
     border-radius: 8px;
     background-color: rgb(17, 186, 17);
+    transition: color 0.4s ease, background 0.4s ease;
+
+}
+
+.button-contact:hover {
+    background: transparent !important;
+    border: 2px solid #11BA11;
+    color: #11BA11;
+
 }

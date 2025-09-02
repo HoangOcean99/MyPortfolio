@@ -84,7 +84,8 @@
     height: 33px;
     border-radius: 50%;
 }
-.input-message{
+
+.input-message {
     padding-left: 20px !important;
 }
 
@@ -99,6 +100,12 @@
     margin-bottom: 10px;
     background-color: white;
     color: black;
+}
+.contain-chatRealtime .input-login img {
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
 }
 
 .contain-chatRealtime .contain-input {
@@ -130,6 +137,15 @@
     border-radius: 8px;
     background-color: rgb(17, 186, 17);
     font-size: 100%;
+    transition: color 0.4s ease, background 0.4s ease;
+
+}
+
+.contain-chatRealtime .contain-input .button-send:hover {
+    background: transparent !important;
+    border: 2px solid #11BA11;
+    color: #11BA11;
+
 }
 
 .contain-chatRealtime .contain-input .button-send span {
@@ -173,6 +189,15 @@
     background-color: red;
     color: white;
     font-size: 70%;
+    transition: color 0.4s ease, background 0.4s ease;
+
+}
+
+.contain-infor .button-logout:hover {
+    background: transparent !important;
+    border: 2px solid red;
+    color: red;
+
 }
 
 @media (min-width: 1200px) {

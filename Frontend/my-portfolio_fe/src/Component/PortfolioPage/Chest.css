@@ -192,6 +192,7 @@
     left: 50%;
     transform: translate3d(-50%, -50%, 1px);
     background: var(--unit-four);
+    cursor: pointer;
 }
 
 .drawer__panel--bottom {
@@ -223,7 +224,7 @@
     backface-visibility: visible;
 }
 
-.drawer__panel span{
+.drawer__panel span {
     color: white;
 }
 
@@ -292,4 +293,24 @@ summary:after {
 
 .chest__drawer:hover:not([data-open="true"]) .drawer__structure {
     --open: var(--hover);
+}
+
+
+/* custom card trong tu */
+.main-project-bottom{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 5%;
+    row-gap: 5px;
+    flex-wrap: wrap;
+}
+.project-bottom{
+    width: 30px !important;
+    height: 30px !important;
+}
+.project-bottom .project-img{
+    width: 100%;
+    height: 100%;
+   background-size: cover !important;
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import imageMySelf from '../../assets/AnhMyself.jpg'
 import './ChatRealtime.css'
+import imageGoogle from '../../assets/google.png'
 
 export default function ChatRealTime() {
     const [user, setUser] = useState(false);
@@ -41,8 +42,8 @@ export default function ChatRealTime() {
                 })}
             </div>
             {!user && <div className='input-login'>
-                <button onClick={() => setUser(true)}>Login by google</button>
-                <p>Login để cùng nhau trò chuyện</p>
+                <button onClick={() => setUser(true)}><img src={imageGoogle}/>Login by google</button>
+                <p>Login to chat realtime</p>
             </div>}
             {user &&
                 <form className='contain-input'>

@@ -51,6 +51,11 @@ export default function HeaderHero({ toggleTheme }) {
                             <option value="en">English</option>
                             <option value="vi">Tiếng Việt</option>
                         </select>
+                        <button
+                            className="btn btn-sm btn-outline-dark w-100 mt-2"
+                        >
+                            Go to dashboard
+                        </button>
                     </div>
                 )}
 
@@ -92,22 +97,6 @@ export default function HeaderHero({ toggleTheme }) {
                         className="btn ms-auto button-settings d-none d-lg-block">
                         <ion-icon name="settings-outline"></ion-icon>
                     </button>
-                    {showSettings && (
-                        <div className="settings-box shadow p-3 rounded position-absolute end-0 mt-5 me-5" style={{ width: "200px" }}>
-                            <h6 className="mb-2">⚙ Settings</h6>
-                            <hr className="my-2" />
-                            <button
-                                onClick={() => onClickSelectMode()}
-                                className="btn btn-sm btn-outline-dark w-100 mb-2"
-                            >
-                                {textButtonDarkMode[indexDarkMode]}
-                            </button>
-                            <select className="form-select form-select-sm">
-                                <option value="en">English</option>
-                                <option value="vi">Tiếng Việt</option>
-                            </select>
-                        </div>
-                    )}
                 </div>
             </div>
         </nav>

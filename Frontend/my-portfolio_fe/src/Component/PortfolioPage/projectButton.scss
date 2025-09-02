@@ -1,0 +1,64 @@
+$speed: 0.5s;
+
+.btn-flip {
+    opacity: 1;
+    outline: 0;
+    color: #fff;
+    line-height: 40px;
+    position: relative;
+    text-align: center;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    // Hover khi toàn bộ container được hover
+    .portfolio-dropdown:hover & {
+        &:after {
+            opacity: 1;
+            transform: translateY(0) rotateX(0);
+        }
+
+        &:before {
+            opacity: 0;
+            transform: translateY(50%) rotateX(90deg);
+        }
+    }
+
+    &:after {
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        color: var(--text-color);
+        display: block;
+        transition: $speed;
+        position: absolute;
+        background: var(--btn-skill-hover);
+        content: attr(data-back);
+        transform: translateY(-50%) rotateX(90deg);
+        padding: 15px 20px;
+        border-radius: 10px;
+        width: 400px;
+        font-size: 35px;
+    }
+
+    &:before {
+        top: 0;
+        left: 0;
+        opacity: 1;
+        color: var(--text-color);
+        display: block;
+        padding: 0 30px;
+        line-height: 40px;
+        transition: $speed;
+        position: relative;
+        background: var(--btn-skill);
+        content: attr(data-front);
+        transform: translateY(0) rotateX(0);
+        padding: 15px 20px;
+        border-radius: 10px;
+        width: 400px;
+        font-size: 35px;
+    }
+}

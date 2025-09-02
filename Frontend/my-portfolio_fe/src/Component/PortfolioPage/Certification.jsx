@@ -29,7 +29,7 @@ export default function Certification() {
   ];
 
   return (
-    <div className="bg-dark text-light" id="projects">
+    <div className="text-light mt-3" id="projects">
       <div className="container">
         <div className="row g-4">
           {projects.map((p, i) => (

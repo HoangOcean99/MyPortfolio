@@ -1,4 +1,4 @@
-/* Container chính */
+/* ================= Container chính ================= */
 .portfolio-dropdown {
     position: relative;
     display: inline-block;
@@ -6,92 +6,112 @@
     margin: auto;
 }
 
-/* Nút chính */
-.portfolio-btn {
-    /* background: #444; */
-    padding: 8px 20px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    z-index: 20;
-    position: relative;
-    font-size: 40px;
-    margin: auto;
-    background-color: transparent !important;
-    border: 2px solid grey;
-    color: var(--text-color);
-}
-
-/* Submenu */
+/* ================= Submenu ================= */
 .portfolio-submenu {
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 5;
+    z-index: 10;
 }
 
-/* Nút con */
+/* ================= Nút con ================= */
 .portfolio-submenu button {
     position: absolute;
     top: 0;
     left: 50%;
-    /* width: 120px; */
     padding: 6px 12px;
     border: none;
     border-radius: 6px;
     background: transparent;
     cursor: pointer;
-    z-index: 2;
-    font-size: 20px;
-    /* Bắt đầu chồng lên nhau và ẩn */
+    font-size: 23px;
     opacity: 0;
     transform: translate(-50%, -40px);
+    z-index: 2;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    height: 100px;
 }
 
+/* Span bên trong nút con */
 .portfolio-submenu button span {
-    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 150px;
-    height: 30px;
+    width: 190px;
+    height: 40px;
     border-radius: 6px;
     border: 2px solid grey;
     color: var(--text-color) !important;
-    /* background: #555; */
-    z-index: 2;
     margin: auto;
+    z-index: 2;
 }
 
-/* Hover in - Bước 1: rơi xuống cùng Y */
+/* ================= Line nối nút con ================= */
+.portfolio-dropdown .lineProject {
+    position: absolute;
+    width: 2px;
+    background-color: grey !important;
+    /* kéo từ nút con lên button chính */
+    transform: translateX(-50%);
+    height: 40px;
+    /* độ dài dây */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1 !important;
+}
+
+/* Dây nối nút Project (button đầu tiên) */
+.line1 {
+    top: 60px;
+    /* từ button chính xuống */
+    left: 22.5%;
+    height: 60px;
+    /* chiều dài dây */
+    transform: translateX(-100px);
+    /* dịch sang trái tương ứng nút con */
+}
+
+/* Dây nối nút Certification (button thứ hai) */
+.line2 {
+    top: 60px;
+    left: 76.5%;
+    height: 60px;
+    /* chiều dài dây */
+    transform: translateX(0);
+    /* nút con ở giữa */
+}
+
+/* Hiển thị dây khi hover dropdown */
+.portfolio-dropdown:hover .lineProject {
+    opacity: 1;
+}
+
+/* Hiển thị line khi hover dropdown */
+.portfolio-dropdown:hover .portfolio-submenu button .lineProject {
+    opacity: 1;
+}
+
+/* ================= Hover nút con ================= */
 .portfolio-dropdown:hover .portfolio-submenu button {
     opacity: 1;
     transform: translate(-50%, 0);
-    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Hover in - Bước 2: tách trái/phải theo X với delay */
+/* Tách trái/phải theo thứ tự nút */
 .portfolio-dropdown:hover .portfolio-submenu button:nth-child(1) {
-    transform: translate(-100%, 0);
-    transition: transform 0.3s 0.3s ease, opacity 0.3s ease;
+    transform: translate(-100%, 0%);
+    transition-delay: 0.3s;
 }
 
 .portfolio-dropdown:hover .portfolio-submenu button:nth-child(2) {
-    transform: translate(0%, 0);
-    transition: transform 0.3s 0.3s ease, opacity 0.3s ease;
+    transform: translate(0%, 0%);
+    transition-delay: 0.3s;
 }
 
-/* Hover out - Bước 1: tách về giữa (chỉ X, không Y) */
-.portfolio-submenu button:nth-child(1),
-.portfolio-submenu button:nth-child(2) {
-    transition: transform 0.3s ease 0s, opacity 0.3s ease 0.3s;
-    transform: translate(-50%, 0);
-}
-
-/* Hover out - Bước 2: rơi lên và ẩn (chỉ Y + opacity) */
+/* Hover out: ẩn nút con */
 .portfolio-dropdown:not(:hover) .portfolio-submenu button {
-    opacity: 0 !important;
+    opacity: 0;
     transform: translate(-50%, -40px);
-    transition: transform 0.3s ease 0.3s, opacity 0.3s ease 0.3s;
+    transition-delay: 0s;
 }
