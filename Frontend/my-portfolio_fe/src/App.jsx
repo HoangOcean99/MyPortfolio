@@ -12,6 +12,8 @@ function App() {
   }, [theme]);
 
   const toggleTheme = () => {
+    9+6
+    
     setTheme(prev => (prev === "dark" ? "light" : "dark"));
   };
 

@@ -1,0 +1,24 @@
+.main-modal-project .modal-content {
+    background: var(--bg-color) !important;
+    color: var(--text-color) !important;
+    /* nếu có text màu */
+}
+
+.main-modal-project .modal-header,
+.main-modal-project .modal-body,
+.main-modal-project .modal-footer {
+    background: var(--bg-color) !important;
+}
+.main-modal-project .modal-body{
+    width: 100%;
+    margin: auto;
+}
+.img-preview {
+    width: 100%;
+    height: auto;
+}
+
+.contain-achi {
+    width: 100%;
+    margin: auto;
+}

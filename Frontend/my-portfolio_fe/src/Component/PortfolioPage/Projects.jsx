@@ -20,20 +20,31 @@ export default function Projects() {
     {
       type: 1,
       title: "AIS Bone Fracture Detection",
-      desc: "A mobile application powered by Artificial Intelligence...",
-      img: "/images/ais.png",
-      stack: ["Java", "Firebase"],
-      features: ["X-ray Analysis", "Realtime Detection"],
+      desc: "A mobile application powered by AI for detecting bone fractures using X-ray images, providing realtime analysis to assist healthcare professionals.",
+      img: "/images/AnhMyself.jpg",
+      stack: ["Java", "Firebase", "TensorFlow Lite"],
+      features: ["X-ray Analysis", "Realtime Detection", "Secure Data Storage"],
       role: "Mobile Dev",
+      team: "4 members", // ✅ gợi ý thêm
       time: "2024",
+      responsibilities: [ // ✅ highlight công việc của bạn
+        "Developed mobile application in Java",
+        "Integrated Firebase for user authentication & database",
+        "Connected AI model (TensorFlow Lite) for X-ray detection"
+      ],
       demo: "https://demo-link.com",
-      github: "https://github.com/user/ais"
+      github: "https://github.com/user/ais",
+      achievements: [ // ✅ highlight kết quả
+        "Built functional prototype within 2 months",
+        "Presented at HealthTech Hackathon 2024",
+        "Received positive feedback from medical advisors"
+      ]
     },
     {
       type: 2,
       title: "IoT Air Quality Monitoring",
       desc: "A smart IoT system designed to measure and analyze air quality...",
-      img: "/images/air.png",
+      img: "/images/AnhMyself.jpg",
       stack: ["C++", "Arduino", "Firebase"],
       features: ["Realtime Monitoring", "Data Visualization"],
       role: "Embedded + Web",
@@ -99,7 +110,7 @@ export default function Projects() {
                             <div className="content">
                               <h6 className="fw-bold">{p.title}</h6>
                               <div className="card-subtitle mt-2">Web App</div>
-                              <p className="text-white-50">{p.desc}</p> 
+                              <p className="text-white-50">{p.desc}</p>
                               <div className="gap-2 mt-2 icon-div">
                                 {p.stack.map((text, idx) => (
                                   <div key={idx} className="tech-icon text-center">
