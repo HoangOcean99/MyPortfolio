@@ -6,7 +6,7 @@ import { ReactTyped } from "react-typed";
 
 export default function AboutMe() {
   return (
-    <section className="about-me py-5" id="about">
+    <section className="about-me py-5" id="AboutMe">
       <div className="container">
         <div className="row align-items-center">
           {/* Ảnh bên trái */}

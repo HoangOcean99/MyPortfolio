@@ -18,7 +18,7 @@ export default function Skills() {
 
 
     return (
-        <div className="contain-skills">
+        <div className="contain-skills" id="Skills">
             <div className="text-light py-5">
                 <div className="container">
                     <h2 className="text-center mb-4 fw-bold my-skills-title">My Skills</h2>

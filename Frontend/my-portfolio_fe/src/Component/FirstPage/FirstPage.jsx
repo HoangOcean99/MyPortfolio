@@ -5,7 +5,7 @@ import './FirstPage.css'
 export default function FirstPage({ mode }) {
 
     return (
-        <div className="min-vh-50 vw-100" id="home">
+        <div className="min-vh-50 vw-100" id="Home">
 
             {/* HERO */}
             <section className="container contain-home">

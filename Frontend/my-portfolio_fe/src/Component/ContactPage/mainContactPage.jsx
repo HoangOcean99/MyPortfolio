@@ -4,7 +4,7 @@ import './MainContactPage.css';
 
 export default function MainContactPage() {
     return (
-        <div className="container contain-realtime">
+        <div className="container contain-realtime" id="Contact">
             <div className="contain-tilte-contact"><h2 className="title-mainContact">Contact and Chat</h2></div>
             <div className="row contain-mainContactPage">
                 <div className="col-sm-12 col-md-6">

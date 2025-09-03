@@ -121,7 +121,7 @@ ul li.li-header:hover .title {
 
 .settings-box {
     z-index: 1000;
-    margin-top: 230px !important;
+    margin-top: 190px !important;
     background-color: var(--bg-color) !important;
 }
 

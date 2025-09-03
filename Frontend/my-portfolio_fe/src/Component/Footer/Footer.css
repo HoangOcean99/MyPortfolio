@@ -41,11 +41,11 @@
 }
 
 .footer-social li a .fa {
-    font-size: 30px;
+    font-size: 22px;
     color: var(--text-button);
     line-height: 80px;
     transition: .5s;
-    padding-right: 15 px;
+    /* padding-right: 15px !; */
 }
 
 .footer-social li a::before {
@@ -94,15 +94,15 @@
 }
 
 .footer-social li:nth-child(2):hover a {
-    background: #00aced;
+    background: black;
 }
 
 .footer-social li:nth-child(2):hover a::before {
-    background: #097aa5;
+    background: black;
 }
 
 .footer-social li:nth-child(2):hover a::after {
-    background: #53b9e0;
+    background: black;
 }
 
 .footer-social li:nth-child(3):hover a {
@@ -159,10 +159,13 @@
     text-decoration: none;
     color: var(--text-color) !important;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .footer-column ul li a:hover {
-    color: #0077ff;
+    position: relative;
+    top: -2px;
+    color: white !important;
 }
 
 .footer-bottom {

@@ -1,0 +1,63 @@
+.contain-dashboard {
+    box-sizing: border-box;
+    width: 100vw;
+    height: auto;
+    text-align: center;
+}
+
+
+.custom-tabs {
+    justify-content: center;
+    /* căn giữa cả dãy tab */
+    flex-wrap: wrap;
+    /* cho phép xuống dòng khi màn hình nhỏ */
+}
+
+.custom-tabs .nav-item {
+    flex: 1 1 auto;
+    /* tab co giãn theo màn hình */
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    /* thêm khoảng cách khi xuống dòng */
+}
+
+.custom-tabs .nav-link {
+    display: flex;
+    flex-direction: column;
+    /* icon + title + subtitle theo cột */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
+    white-space: normal;
+    /* cho phép xuống dòng */
+    min-height: 70px;
+    /* cao vừa đủ */
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.custom-tabs .nav-link small {
+    font-size: 12px;
+    color: gray;
+}
+
+.img-pro {
+    width: 40%;
+    height: auto;
+}
+
+.contain-gene {
+    background-color: transparent !important;
+    color: var(--text-color);
+}
+
+@media (max-width: 500px) {
+    .contain-dashboard {
+        width: 130vw;
+        height: auto;
+    }
+}

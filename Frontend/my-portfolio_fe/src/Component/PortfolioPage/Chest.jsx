@@ -35,14 +35,14 @@ export default function Chest({ setFilter }) {
             <div className="main-project-bottom">
               <div className="project-bottom">
                 <img
-                  src="https://picsum.photos/id/1011/400/250"
+                  src="https://picsum.photos/id/1016/400/250"
                   alt="Demo Project"
                   className="project-img"
                 />
               </div>
               <div className="project-bottom">
                 <img
-                  src="https://picsum.photos/id/1012/400/250"
+                  src="https://picsum.photos/id/1014/400/250"
                   alt="Demo Project"
                   className="project-img"
                 />

@@ -8,7 +8,7 @@ export default function MainPortfolio() {
     const [filter, setFilter] = useState("Project");
 
     return (
-        <div className="text-light" id="projects" style={{ minHeight: '700px' }}>
+        <div className="text-light" id="Projects" style={{ minHeight: '700px' }}>
             <div className="container text-center">
                 {/* Portfolio dropdown */}
                 <div className="portfolio-dropdown">

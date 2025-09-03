@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Tilt from "react-parallax-tilt";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Projects.css";
 import Chest from "./Chest";
@@ -95,7 +94,7 @@ export default function Projects() {
                         key={p.title + i}
                         className="col-12 col-md-6 col-lg-4"
                         variants={projectVariants}
-                      >
+                      > 
                         <div
                           className="card-project"
                           onClick={() => {

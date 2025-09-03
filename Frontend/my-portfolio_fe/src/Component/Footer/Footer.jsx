@@ -1,7 +1,14 @@
 import "./Footer.css";
 import "font-awesome/css/font-awesome.min.css";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import '@fortawesome/fontawesome-free/css/v4-shims.min.css'; // giúp giữ cú pháp fa v4
+
 
 export default function Footer() {
+    const scrollToId = (id) => {
+        const view = document.getElementById(id);
+        if (view) view.scrollIntoView({ behavior: "smooth", block: 'start' })
+    }
     return (
         <footer className="footer containter">
             <div className="footer-container row">
@@ -18,36 +25,43 @@ export default function Footer() {
                     <h4>Follow Me</h4>
                     <ul className="footer-social">
                         <li>
-                            <a href="#">
-                                <i className="fa fa-facebook" aria-hidden="true"></i>
+                            <a href="https://www.facebook.com/hoang.hai.duong.484951" target="_blank" rel="noreferrer">
+                                <i className="fa fa-brands fa-facebook"></i>
                             </a>
                         </li>
+
+                        {/* Đổi Twitter -> TikTok */}
                         <li>
-                            <a href="#">
-                                <i className="fa fa-twitter" aria-hidden="true"></i>
+                            <a href="https://www.tiktok.com/@haiduong09905" target="_blank" rel="noreferrer">
+                                <i className="fa fa-brands fa-tiktok"></i>
                             </a>
                         </li>
+
+                        {/* Google Plus đã “toi”, thay bằng Google hoặc email */}
                         <li className="mb-5 mb-md-0">
-                            <a href="#">
-                                <i className="fa fa-google-plus" aria-hidden="true"></i>
+                            <a href="mailto:duonghaiduong090905@gmail.com">
+                                <i className="fa fa-solid fa-envelope"></i>
                             </a>
                         </li>
+
                         <li className="mb-5 mb-md-0">
-                            <a href="#">
-                                <i className="fa fa-instagram" aria-hidden="true"></i>
+                            <a href="https://www.instagram.com/haiduong09905/" target="_blank" rel="noreferrer">
+                                <i className="fa fa-brands fa-instagram"></i>
                             </a>
                         </li>
                     </ul>
+
                 </div>
 
                 {/* Quick Links */}
                 <div className="footer-column col-md-3 col-12">
                     <h4>🧭 Explore</h4>
                     <ul>
-                        <li><a href="#home">🏠 Home</a></li>
-                        <li><a href="#about">👤 About Me</a></li>
-                        <li><a href="#portfolio">💼 Portfolio</a></li>
-                        <li><a href="#contact">📧 Contact</a></li>
+                        <li><a onClick={() => scrollToId('Home')}>🏠 Home</a></li>
+                        <li><a onClick={() => scrollToId('AboutMe')}>👤 About Me</a></li>
+                        <li><a onClick={() => scrollToId('Skills')}>🎯 Skills</a></li>
+                        <li><a onClick={() => scrollToId('Projects')}>💼 Portfolio</a></li>
+                        <li><a onClick={() => scrollToId('Contact')}>📧 Contact</a></li>
                     </ul>
                 </div>
             </div>

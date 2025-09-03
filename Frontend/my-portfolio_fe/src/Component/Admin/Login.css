@@ -1,0 +1,90 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* đảm bảo full màn hình */
+    min-width: 100vw;
+    background: var(--bg-color);
+    padding: 20px;
+    color: var(--text-color) !important;
+    /* chống dính sát mép trên mobile */
+}
+
+.login-card {
+    border-radius: 20px;
+    background: var(--bg-color);
+    padding: 2rem;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.6s ease-in-out;
+    width: 100%;
+    /* full chiều ngang trong col */
+    max-width: 400px;
+    color: var(--text-color) !important;
+    /* giới hạn max cho tablet/desktop */
+}
+
+/* Title */
+.login-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color) !important;
+}
+
+/* Button */
+.login-btn {
+    border-radius: 10px;
+    font-weight: bold;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(37, 117, 252, 0.4);
+}
+
+/* Fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .login-container {
+        min-height: 135vh;
+        /* đảm bảo full màn hình */
+        min-width: 135vw;
+    }
+}
+
+@media (max-width: 372px) {
+    .login-container {
+        min-height: 140vh;
+        /* đảm bảo full màn hình */
+        min-width: 140vw;
+    }
+}
+
+@media (max-width: 350px) {
+    .login-container {
+        min-height: 150vh;
+        /* đảm bảo full màn hình */
+        min-width: 150vw;
+    }
+}
+
+@media (max-width: 330px) {
+    .login-container {
+        min-height: 160vh;
+        /* đảm bảo full màn hình */
+        min-width: 160vw;
+    }
+}

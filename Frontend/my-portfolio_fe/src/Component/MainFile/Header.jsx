@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './Header.css'
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { useNavigate } from "react-router-dom";
 
 
 // Smooth scroll helper
@@ -10,6 +11,7 @@ const scrollToId = (id) => {
 };
 
 export default function HeaderHero({ toggleTheme }) {
+    const navigate = useNavigate();
     const [scrolled, setScrolled] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
     const textButtonDarkMode = ['⛅ Close Dark Mode', '🌙 Open Dark Mode'];
@@ -47,12 +49,9 @@ export default function HeaderHero({ toggleTheme }) {
                         >
                             {textButtonDarkMode[indexDarkMode]}
                         </button>
-                        <select className="form-select form-select-sm">
-                            <option value="en">English</option>
-                            <option value="vi">Tiếng Việt</option>
-                        </select>
                         <button
                             className="btn btn-sm btn-outline-dark w-100 mt-2"
+                            onClick={() => navigate('/admin-login')}
                         >
                             Go to dashboard
                         </button>
@@ -68,23 +67,23 @@ export default function HeaderHero({ toggleTheme }) {
                 {/* Menu */}
                 <div className="collapse navbar-collapse justify-content-lg-center" id="navbarMenu">
                     <ul className="menu-icons d-flex list-unstyled mx-auto mx-lg-0">
-                        <li style={{ "--i": "#8a6aff", "--j": "#5c00b3" }} className="li-header">
+                        <li style={{ "--i": "#8a6aff", "--j": "#5c00b3" }} className="li-header" onClick={() => scrollToId('Home')}>
                             <span className="icon"><ion-icon name="home-outline"></ion-icon></span>
                             <span className="title">Home</span>
                         </li>
-                        <li style={{ "--i": "#2e7d32", "--j": "#064a1f" }} className="li-header">
+                        <li style={{ "--i": "#2e7d32", "--j": "#064a1f" }} className="li-header" onClick={() => scrollToId('AboutMe')}>
                             <span className="icon"><ion-icon name="person-outline"></ion-icon></span>
                             <span className="title">About Me</span>
                         </li>
-                        <li style={{ "--i": "#d68933", "--j": "#b35c00" }} className="li-header">
+                        <li style={{ "--i": "#d68933", "--j": "#b35c00" }} className="li-header" onClick={() => scrollToId('Skills')}>
                             <span className="icon"><ion-icon name="bulb-outline"></ion-icon></span>
                             <span className="title">My Skills</span>
                         </li>
-                        <li style={{ "--i": "#2196f3", "--j": "#01579b" }} className="li-header">
+                        <li style={{ "--i": "#2196f3", "--j": "#01579b" }} className="li-header" onClick={() => scrollToId('Projects')}>
                             <span className="icon"><ion-icon name="briefcase-outline"></ion-icon></span>
                             <span className="title">My Projects</span>
                         </li>
-                        <li style={{ "--i": "#c2185b", "--j": "#880e4f" }} className="li-header">
+                        <li style={{ "--i": "#c2185b", "--j": "#880e4f" }} className="li-header" onClick={() => scrollToId('Contact')}>
                             <span className="icon"><ion-icon name="mail-outline"></ion-icon></span>
                             <span className="title">Contact</span>
                         </li>
