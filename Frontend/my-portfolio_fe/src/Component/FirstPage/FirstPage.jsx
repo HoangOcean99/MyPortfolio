@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from "react";
 import CanvasCard from "./CanvasCard";
 import './FirstPage.css'
+import { getGeneral } from "../../Api/GeneralApi";
 
 export default function FirstPage({ mode }) {
+    const [generalInfor, setGeneralInfor] = useState(null);
+    useEffect(() => {
+        const fetchGeneral = async () => {
+            const response = await getGeneral();
+            setGeneralInfor(response.data[0]);
+        }
+        fetchGeneral();
+    }, []);
 
     return (
         <div className="min-vh-50 vw-100" id="Home">
@@ -42,8 +51,8 @@ export default function FirstPage({ mode }) {
 
 
                         {/* Socials */}
-                        <div className="mt-4 d-flex gap-3">
-                            <a href="#" className="button-downloadCV">
+                        {generalInfor && <div className="mt-4 d-flex gap-3">
+                            <a href={generalInfor.linkCV} target="_blank" rel="noreferrer" className="button-downloadCV">
                                 <span>Download CV</span>
                                 <span>Download CV</span>
                                 <span>Download CV</span>
@@ -52,7 +61,7 @@ export default function FirstPage({ mode }) {
                             <a href="https://github.com/HoangOcean99" target="_blank" rel="noreferrer" className="fs-1 button-github">
                                 <i className="bi bi-github"></i>
                             </a>
-                        </div>
+                        </div>}
                     </div>
 
                     {/* Right: card / avatar */}

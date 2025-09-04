@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import "./Projects.css";
 import Chest from "./Chest";
 import ProjectModal from "./ModalProject";
+import { getProject } from "../../Api/ProjectApi";
 
 export default function Projects() {
   const [filter, setFilter] = useState(-1);
@@ -15,58 +16,26 @@ export default function Projects() {
     exit: { opacity: 0, scale: 0, x: -200, y: 100, transition: { duration: 0.8 } }
   };
 
-  const projects = [
-    {
-      type: 1,
-      title: "AIS Bone Fracture Detection",
-      desc: "A mobile application powered by AI for detecting bone fractures using X-ray images, providing realtime analysis to assist healthcare professionals.",
-      img: "/images/AnhMyself.jpg",
-      stack: ["Java", "Firebase", "TensorFlow Lite"],
-      features: ["X-ray Analysis", "Realtime Detection", "Secure Data Storage"],
-      role: "Mobile Dev",
-      team: "4 members", // ✅ gợi ý thêm
-      time: "2024",
-      responsibilities: [ // ✅ highlight công việc của bạn
-        "Developed mobile application in Java",
-        "Integrated Firebase for user authentication & database",
-        "Connected AI model (TensorFlow Lite) for X-ray detection"
-      ],
-      demo: "https://demo-link.com",
-      github: "https://github.com/user/ais",
-      achievements: [ // ✅ highlight kết quả
-        "Built functional prototype within 2 months",
-        "Presented at HealthTech Hackathon 2024",
-        "Received positive feedback from medical advisors"
-      ]
-    },
-    {
-      type: 2,
-      title: "IoT Air Quality Monitoring",
-      desc: "A smart IoT system designed to measure and analyze air quality...",
-      img: "/images/AnhMyself.jpg",
-      stack: ["C++", "Arduino", "Firebase"],
-      features: ["Realtime Monitoring", "Data Visualization"],
-      role: "Embedded + Web",
-      time: "2023",
-      demo: "https://demo-link.com",
-      github: "https://github.com/user/iot-air"
-    }
-    // ... thêm project khác
-  ];
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    console.log(filter);
-  }, [filter]);
+    const fetchProject = async () => {
+      const response = await getProject();
+      console.log(response.data)
+      setProjects(response.data);
+    }
+    fetchProject();
+  }, []);
 
   return (
     <div className="text-light" id="projects">
       <div className="container">
-        <div className="row">
-          <div className="col-md-3 col-12 mt-3 mb-5 pt-5 d-flex justify-content-center">
+        <div className="row ">
+          <div className="col-xxl-4 col-12 mt-3 mb-5 pt-5 d-flex justify-content-center">
             <Chest setFilter={setFilter} />
           </div>
 
-          <div className="col-md-9 col-12 position-relative">
+          <div className="col-xxl-8 col-12 position-relative">
             <h1
               className={`empty-project ${filter !== -1 ? "fade-out" : ""}`}
               style={{ opacity: filter === -1 ? 1 : 0 }}
@@ -87,14 +56,14 @@ export default function Projects() {
                     exit: { transition: { staggerChildren: 0.1, staggerDirection: -1 } }
                   }}
                 >
-                  {projects
+                  {(projects.length > 0) && projects
                     .filter((p) => p.type === filter)
                     .map((p, i) => (
                       <motion.div
                         key={p.title + i}
-                        className="col-12 col-md-6 col-lg-4"
+                        className="col-12 col-md-6 col-xxl-4 mt-md-5"
                         variants={projectVariants}
-                      > 
+                      >
                         <div
                           className="card-project"
                           onClick={() => {
@@ -111,9 +80,9 @@ export default function Projects() {
                               <div className="card-subtitle mt-2">Web App</div>
                               <p className="text-white-50">{p.desc}</p>
                               <div className="gap-2 mt-2 icon-div">
-                                {p.stack.map((text, idx) => (
+                                {p.ProjectStacks.map((text, idx) => (
                                   <div key={idx} className="tech-icon text-center">
-                                    {text}
+                                    {text.stacks}
                                   </div>
                                 ))}
                               </div>

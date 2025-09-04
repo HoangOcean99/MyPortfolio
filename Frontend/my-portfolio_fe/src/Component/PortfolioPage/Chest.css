@@ -306,8 +306,8 @@ summary:after {
     flex-wrap: wrap;
 }
 .project-bottom{
-    width: 30px !important;
-    height: 30px !important;
+    width: 30% !important;
+    height: 30% !important;
 }
 .project-bottom .project-img{
     width: 100%;

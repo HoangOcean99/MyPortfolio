@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./IntroMyself.css";
 import imageMySelf from "../../assets/AnhMyself.jpg";
 import { ReactTyped } from "react-typed";
+import { getGeneral } from "../../Api/GeneralApi";
 
 export default function AboutMe() {
+  const [generalInfor, setGeneralInfor] = useState(null);
+  useEffect(() => {
+    const fetchGeneral = async () => {
+      const response = await getGeneral();
+      setGeneralInfor(response.data[0]);
+    }
+    fetchGeneral();
+  }, []);
   return (
     <section className="about-me py-5" id="AboutMe">
       <div className="container">
@@ -54,7 +63,7 @@ export default function AboutMe() {
 
 
           {/* Văn bản bên phải */}
-          <div className="col-md-7 col-sm-12 contain-intro">
+          {generalInfor && <div className="col-md-7 col-sm-12 contain-intro">
             <h2 className="mb-3 title-aboutme">
               About Me
             </h2>
@@ -72,20 +81,20 @@ export default function AboutMe() {
             </p>
             <div className="deco-intro">
               <div className="deco-1">
-                <h1><span className="intro-color">10</span>+</h1>
+                <h1><span className="intro-color">{generalInfor.projectFinished}</span>+</h1>
                 <h4>Project Finished</h4>
               </div>
               <div className="deco-2">
-                <h1><span className="intro-color">2</span>+</h1>
+                <h1><span className="intro-color">{generalInfor.yearCoding}</span>+</h1>
                 <h4>Years of Coding</h4>
               </div>
               <div className="deco-3">
-                <h1><span className="intro-color">3.5</span>/4.0</h1>
+                <h1><span className="intro-color">{generalInfor.GPA}</span>/4.0</h1>
                 <h4>GPA</h4>
               </div>
             </div>
             <h5 className="h5-conclu text-secondary">Heart in work, mind in creation.</h5>
-          </div>
+          </div>}
         </div>
       </div>
     </section >

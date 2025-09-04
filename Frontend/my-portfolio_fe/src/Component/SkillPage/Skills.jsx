@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './Skills.scss'
 import imageUser from '../../assets/AnhMyself.jpg'
-
-
-
+import { getSkill } from "../../Api/SkillApi";
 
 export default function Skills() {
-    const skills = [
-        { image: imageUser, name: "React JS", type: "Framework", group: 1 },
-        { image: imageUser, name: "Next JS", type: "Framework", group: 1 },
-        { image: imageUser, name: "Tailwind CSS", type: "Framework", group: 1 },
-        { image: imageUser, name: "Bootstrap", type: "Framework", group: 1 },
-        { image: imageUser, name: "JavaScript", type: "Language", group: 1 },
-    ];
-    const [filter, setFilter] = useState();
+    const [skills, setSkills] = useState([]);
+    // const [filter, setFilter] = useState();
     const [groupSkills, setGroupSkills] = useState(1);
 
+    useEffect(() => {
+        const fetchSkill = async () => {
+            const response = await getSkill();
+            console.log(response.data)
+            setSkills(response.data);
+        }
+        fetchSkill();
+    }, [])
 
     return (
         <div className="contain-skills" id="Skills">
@@ -53,14 +53,14 @@ export default function Skills() {
 
                     </div>
                     <div className="row g-4">
-                        {skills.filter(object => object.group === groupSkills).map((skill, index) => (
+                        {skills.length > 0 && skills.filter(object => object.groupSkill === groupSkills).map((skill, index) => (
                             <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 card-skill-hover">
                                 <div className="text-center h-100 border-0 shadow-sm">
                                     <div className="card-body d-flex align-items-center card-skill">
                                         <div className="icon-skill text-light"><img src={skill.image} /></div>
                                         <div className="detail-skill">
-                                            <h6 className="card-title fw-bold">{skill.name}</h6>
-                                            <p className="card-text">{skill.type}</p>
+                                            <h6 className="card-title fw-bold">{skill.nameSkill}</h6>
+                                            <p className="card-text">{skill.typeSkill}</p>
                                         </div>
                                     </div>
                                 </div>

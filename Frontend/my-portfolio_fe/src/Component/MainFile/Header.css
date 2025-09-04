@@ -11,10 +11,12 @@ nav.navbar {
 .navbar-brand {
     color: var(--text-button) !important;
 }
-.navbar-toggler{
+
+.navbar-toggler {
     background-color: var(--bg-button) !important;
 }
-.navbar-toggler-icon {  
+
+.navbar-toggler-icon {
     color: var(--text-button) !important;
 }
 
@@ -122,6 +124,7 @@ ul li.li-header:hover .title {
 .settings-box {
     z-index: 1000;
     margin-top: 190px !important;
+    margin-right: 180px !important;
     background-color: var(--bg-color) !important;
 }
 
@@ -152,5 +155,13 @@ ul li.li-header:hover .title {
 
     .button-settings {
         margin-right: 10px;
+    }
+}
+
+@media (max-width: 1900px) {
+    .settings-box {
+
+        margin-right: 80px !important;
+
     }
 }

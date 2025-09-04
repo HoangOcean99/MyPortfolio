@@ -30,7 +30,7 @@ $border-radius: 5px;
     transition: all 0.35s;
     box-sizing: border-box;
     padding: auto;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 .btn-style904 {

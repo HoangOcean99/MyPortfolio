@@ -1,7 +1,7 @@
 import { supabase } from "../utils/supabaseFile.js";
 
-export const getSkills = async () => {
-    const { data, error } = await supabase.from('Skills').select('*');
+export const getGeneral = async () => {
+    const {data, error} = await supabase.from('GeneralInfor').select('*');
     if(error) throw new Error(error.message);
     return data;
 }

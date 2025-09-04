@@ -27,25 +27,25 @@ export default function ProjectModal({ show, onHide, project }) {
           <p>{project.desc}</p>
 
           {/* Features */}
-          {project.features && (
+          {project.ProjectFeatures && (
             <>
               <h5>Features</h5>
               <ul>
-                {project.features.map((f, i) => (
-                  <li key={i}>{f}</li>
+                {project.ProjectFeatures.map((f, i) => (
+                  <li key={i}>{f.features}</li>
                 ))}
               </ul>
             </>
           )}
 
           {/* Tech Stack */}
-          {project.stack && (
+          {project.ProjectStacks && (
             <>
               <h5>Tech Stack</h5>
               <div className="d-flex flex-wrap gap-2 mb-2">
-                {project.stack.map((tech, i) => (
+                {project.ProjectStacks.map((tech, i) => (
                   <span key={i} className="badge bg-secondary">
-                    {tech}
+                    {tech.stacks}
                   </span>
                 ))}
               </div>
@@ -62,24 +62,24 @@ export default function ProjectModal({ show, onHide, project }) {
       </Modal.Body>
       <div className="row container contain-achi">
         {/* Responsibilities */}
-        {project.responsibilities && (
+        {project.ProjectResponsibilities && (
           <div className="col-md-6 col-12">
             <h5>Responsibilities</h5>
             <ul>
-              {project.responsibilities.map((task, i) => (
-                <li key={i}>{task}</li>
+              {project.ProjectResponsibilities.map((task, i) => (
+                <li key={i}>{task.responsibilities}</li>
               ))}
             </ul>
           </div>
         )}
 
         {/* Achievements */}
-        {project.achievements && (
+        {project.ProjectAchievements && (
           <div className="col-md-6 col-12">
             <h5>Achievements</h5>
             <ul>
-              {project.achievements.map((ach, i) => (
-                <li key={i}>{ach}</li>
+              {project.ProjectAchievements.map((ach, i) => (
+                <li key={i}>{ach.achievements}</li>
               ))}
             </ul>
           </div>

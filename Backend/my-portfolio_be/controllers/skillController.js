@@ -9,5 +9,4 @@ export const getSkills = async (req, res, next) => {
     } catch (error) {
         next(new ApiError(StatusCodes.BAD_REQUEST, error.message));
     }
-    
 }
