@@ -1,12 +1,15 @@
 import express from 'express'
 import cors from 'cors'
+import cookieParser from "cookie-parser";
 import { corsOptions } from './config/cors.js'
 import { errorHandlingMiddleware } from './middlewares/errorHandlingMiddleware.js'
 import { APIs_V1 } from './routes/index.js'
 import { env } from './config/environment.js'
 
+
 const app = express()
 app.use(cors(corsOptions))
+app.use(cookieParser());
 app.use(express.json())
 app.use('/api', APIs_V1)
 

@@ -4,6 +4,7 @@ import skillRoutes from './skillRoute.js'
 import projectRoutes from './projectRoute.js'
 import certiRoutes from './certificationRoute.js'
 import geneRoutes from './generalRoute.js'
+import authRoutes from './authRoute.js';
 
 const router = express.Router();
 
@@ -16,6 +17,7 @@ router.use('/skills', skillRoutes);
 router.use('/projects', projectRoutes);
 router.use('/certi', certiRoutes);
 router.use('/general', geneRoutes);
+router.use('/auth', authRoutes);
 
 
 // xuất router dưới tên APIs_V1
