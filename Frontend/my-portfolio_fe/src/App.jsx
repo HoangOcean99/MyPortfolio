@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Login from "./Component/Admin/Login";
 import MainDashboard from "./Component/Admin/MainDashboard";
+import { Protected } from "./Component/Admin/Protected";
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -17,8 +18,6 @@ function App() {
   }, [theme]);
 
   const toggleTheme = () => {
-    9 + 6
-
     setTheme(prev => (prev === "dark" ? "light" : "dark"));
   };
 
@@ -27,7 +26,15 @@ function App() {
       <Routes>
         <Route path="/" element={<MainFile toggleTheme={toggleTheme} mode={theme} />} />
         <Route path="/admin-login" element={<Login />} />
-        <Route path="/dashboard" element={<MainDashboard />} />
+        <Route
+          path="/dashboard"
+          element={
+            <Protected>
+              <MainDashboard />
+            </Protected>
+          }
+        />
+
       </Routes>
     </BrowserRouter>
   );

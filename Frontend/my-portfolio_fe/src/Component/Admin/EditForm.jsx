@@ -1,30 +1,36 @@
 import { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
-export default function EditForm({ project, onSave, addOrEdit }) {
+export default function EditForm({ project, onSave, addOrEditType }) {
     const [formData, setFormData] = useState({
         // Skill
-        skillImg: project?.skillImg || "",
-        skillName: project?.skillName || "",
-        skillGroup: project?.skillGroup || "",
+        image: project?.image || "",
+        fileSkill: {},
+        nameSkill: project?.nameSkill || "",
+        groupSkill: project?.groupSkill || "",
+        typeSkill: project?.typeSkill || "",
 
         // Project
         title: project?.title || "",
         desc: project?.desc || "",
         img: project?.img || "",
-        stack: project?.stack || [],
-        features: project?.features || [""],
+        fileProject: {},
+        stack: project?.ProjectStacks || [""],
+        features: project?.ProjectFeatures || [""],
         role: project?.role || "",
         team: project?.team || "",
         time: project?.time || "",
-        responsibilities: project?.responsibilities || [""],
+        responsibilities: project?.ProjectResponsibilities || [""],
         demo: project?.demo || "",
         github: project?.github || "",
-        achievements: project?.achievements || [""],
+        achievements: project?.ProjectAchievements || [""],
+        groupProject: project?.type,
 
         // Certification
-        certImg: project?.certImg || "",
-        certLink: project?.certLink || ""
+        certTitle: project?.title || "",
+        certImg: project?.image || "",
+        certFile: {},
+        certLink: project?.link || ""
     });
 
     const handleChange = (e) => {
@@ -44,44 +50,52 @@ export default function EditForm({ project, onSave, addOrEdit }) {
 
     const handleSubmit = (e) => {
         let dataSave = null;
-        if (addOrEdit === 'skill') {
+        if (addOrEditType === 'skill') {
             dataSave = {
-                skillImg: formData.skillImg,
-                skillName: formData.skillName,
-                skillGroup: formData.skillGroup,
+                image: formData.image,
+                nameSkill: formData.nameSkill,
+                groupSkill: formData.groupSkill,
+                typeSkill: formData.typeSkill,
+                fileSkill: formData.fileSkill,
             }
         }
-        else if (addOrEdit === 'project') {
+        else if (addOrEditType === 'project') {
             dataSave = {
                 title: formData.title,
                 desc: formData.desc,
                 img: formData.img,
-                stack: formData.stack,
-                features: formData.features,
+                ProjectStacks: formData.stack,
+                ProjectFeatures: formData.features,
                 role: formData.role,
                 team: formData.team,
                 time: formData.time,
-                responsibilities: formData.responsibilities,
+                ProjectResponsibilities: formData.responsibilities,
                 demo: formData.title,
                 github: formData.github,
-                achievements: formData.achievements,
+                ProjectAchievements: formData.achievements,
+                fileProject: formData.fileProject,
+                groupProject: formData.groupProject,
             }
         }
         else {
             dataSave = {
+                certTitle: formData.certTitle,
                 certImg: formData.certImg,
                 certLink: formData.certLink,
+                certFile: formData.certFile,
             }
         }
         e.preventDefault();
         onSave(dataSave);
     };
 
-    const handleImage = (e, name) => {
+    const handleImage = (e, name, fileName) => {
         const file = e.target.files[0];
+        console.log(file)
         if (file) {
             const url = URL.createObjectURL(file);
             setFormData((prev) => ({ ...prev, [name]: url }))
+            setFormData((prev) => ({ ...prev, [fileName]: file }))
         }
     }
 
@@ -89,51 +103,66 @@ export default function EditForm({ project, onSave, addOrEdit }) {
     return (
         <Form onSubmit={handleSubmit}>
             {/* -------- Skill Form -------- */}
-            {addOrEdit === 'skill' && (
+            {addOrEditType === 'skill' && (
                 <Row className="mb-3">
-                    <Col md={4}>
+                    <Col md={6}>
                         <Form.Group>
                             <Form.Label>Skill Image URL</Form.Label>
                             <Form.Control
                                 type="file"
-                                name="skillImg"
+                                name="image"
                                 accept="image/*"
-                                onChange={(e) => handleImage(e, 'skillImg')}
+                                onChange={(e) => handleImage(e, 'image', 'fileSkill')}
                             />
-                            <span style={{
-                                display: 'inline',
-                                width: '100px',
-                                fontSize: '12px'
-                            }}>{formData.skillImg}</span>
                         </Form.Group>
+                        <span style={{
+                            display: 'inline-block',
+                            width: '100%',
+                            fontSize: '10px',
+                        }}>{formData.image}</span>
                     </Col>
-                    <Col md={4}>
+                    <Col md={6}>
                         <Form.Group>
                             <Form.Label>Skill Name</Form.Label>
                             <Form.Control
                                 type="text"
-                                name="skillName"
-                                value={formData.skillName}
+                                name="nameSkill"
+                                value={formData.nameSkill}
                                 onChange={handleChange}
                             />
                         </Form.Group>
                     </Col>
-                    <Col md={4}>
+                    <Col md={6}>
                         <Form.Group>
-                            <Form.Label>Skill Group</Form.Label>
+                            <Form.Label>Skill type</Form.Label>
                             <Form.Control
                                 type="text"
-                                name="skillGroup"
-                                value={formData.skillGroup}
+                                name="typeSkill"
+                                value={formData.typeSkill}
                                 onChange={handleChange}
                             />
+                        </Form.Group>
+                    </Col>
+                    <Col md={6}>
+                        <Form.Group>
+                            <Form.Label>Skill group</Form.Label>
+                            <Form.Select
+                                name="groupSkill"
+                                value={formData.groupSkill}
+                                onChange={handleChange}
+                            >
+                                <option value="">-- Chọn nhóm kỹ năng --</option>
+                                <option value='1'>Technical Skills</option>
+                                <option value="2">Tools</option>
+                                <option value="3">Soft Skills</option>
+                            </Form.Select>
                         </Form.Group>
                     </Col>
                 </Row>
             )}
 
             {/* -------- Project Form -------- */}
-            {addOrEdit === 'project' && (
+            {addOrEditType === 'project' && (
                 <>
                     <Row className="mb-3">
                         <Col md={6}>
@@ -153,7 +182,7 @@ export default function EditForm({ project, onSave, addOrEdit }) {
                                 <Form.Control
                                     type="file"
                                     accept="image/*"
-                                    onChange={(e) => handleImage(e, 'img')}
+                                    onChange={(e) => handleImage(e, 'img', 'fileProject')}
                                 />
                                 <span style={{
                                     display: 'inline',
@@ -176,22 +205,6 @@ export default function EditForm({ project, onSave, addOrEdit }) {
                     </Form.Group>
 
                     <Row className="mb-3">
-                        <Col md={4}>
-                            <Form.Group>
-                                <Form.Label>Stack (comma separated)</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="stack"
-                                    value={formData.stack.join(", ")}
-                                    onChange={(e) =>
-                                        setFormData((prev) => ({
-                                            ...prev,
-                                            stack: e.target.value.split(",").map((s) => s.trim())
-                                        }))
-                                    }
-                                />
-                            </Form.Group>
-                        </Col>
                         <Col md={4}>
                             <Form.Group>
                                 <Form.Label>Role</Form.Label>
@@ -225,7 +238,53 @@ export default function EditForm({ project, onSave, addOrEdit }) {
                                 />
                             </Form.Group>
                         </Col>
+                        <Col md={4}>
+                            <Form.Group>
+                                <Form.Label>Type</Form.Label>
+                                <Form.Select
+                                    name="groupProject"
+                                    value={formData.groupProject}
+                                    onChange={handleChange}
+                                >
+                                    <option value="">-- Select group of project --</option>
+                                    <option value='1'>Web app</option>
+                                    <option value="2">Cross-platform app</option>
+                                    <option value="3">Game</option>
+                                </Form.Select>
+                            </Form.Group>
+                        </Col>
                     </Row>
+
+                    {/* Stack */}
+                    <Form.Label>Stacks</Form.Label>
+                    {formData.stack.map((s, idx) => (
+                        <div key={idx} className="d-flex mb-2 gap-2">
+                            <Form.Control
+                                type="text"
+                                value={s.stacks}
+                                onChange={(e) => handleArrayChange("stack", idx, e.target.value)}
+                            />
+                            <Button
+                                size="sm"
+                                variant="outline-danger"
+                                onClick={() =>
+                                    setFormData((prev) => ({
+                                        ...prev,
+                                        stacks: prev.stacks.filter((_, i) => i !== idx),
+                                    }))
+                                }
+                            >
+                                ❌
+                            </Button>
+                        </div>
+                    ))}
+                    <Button
+                        size="sm"
+                        variant="secondary"
+                        onClick={() => addArrayField("stack")}
+                    >
+                        + Add Stack
+                    </Button><br /><br />
 
                     {/* Features */}
                     <Form.Label>Features</Form.Label>
@@ -233,7 +292,7 @@ export default function EditForm({ project, onSave, addOrEdit }) {
                         <div key={idx} className="d-flex mb-2 gap-2">
                             <Form.Control
                                 type="text"
-                                value={f}
+                                value={f.features}
                                 onChange={(e) => handleArrayChange("features", idx, e.target.value)}
                             />
                             <Button
@@ -256,7 +315,7 @@ export default function EditForm({ project, onSave, addOrEdit }) {
                         onClick={() => addArrayField("features")}
                     >
                         + Add Feature
-                    </Button>
+                    </Button><br /><br />
 
 
                     {/* Responsibilities */}
@@ -265,7 +324,7 @@ export default function EditForm({ project, onSave, addOrEdit }) {
                         <div key={idx} className="d-flex mb-2 gap-2">
                             <Form.Control
                                 type="text"
-                                value={r}
+                                value={r.responsibilities}
                                 onChange={(e) => handleArrayChange("responsibilities", idx, e.target.value)}
                             />
                             <Button
@@ -288,7 +347,7 @@ export default function EditForm({ project, onSave, addOrEdit }) {
                         onClick={() => addArrayField("responsibilities")}
                     >
                         + Add Responsibility
-                    </Button>
+                    </Button><br /><br />
 
                     {/* Achievements */}
                     <Form.Label className="mt-3">Achievements</Form.Label>
@@ -296,7 +355,7 @@ export default function EditForm({ project, onSave, addOrEdit }) {
                         <div key={idx} className="d-flex mb-2 gap-2">
                             <Form.Control
                                 type="text"
-                                value={a}
+                                value={a.achievements}
                                 onChange={(e) => handleArrayChange("achievements", idx, e.target.value)}
                             />
                             <Button
@@ -319,7 +378,7 @@ export default function EditForm({ project, onSave, addOrEdit }) {
                         onClick={() => addArrayField("achievements")}
                     >
                         + Add Achievement
-                    </Button>
+                    </Button><br /><br />
 
 
                     <Row className="mt-3">
@@ -350,16 +409,27 @@ export default function EditForm({ project, onSave, addOrEdit }) {
             )}
 
             {/* -------- Certification Form -------- */}
-            {addOrEdit === 'cert' && (
+            {addOrEditType === 'cert' && (
                 <Row className="mb-3">
-                    <Col md={6}>
+                    <Col md={4}>
+                        <Form.Group>
+                            <Form.Label>Certificate TitleL</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="certTitle"
+                                value={formData.certTitle}
+                                onChange={handleChange}
+                            />
+                        </Form.Group>
+                    </Col>
+                    <Col md={4}>
                         <Form.Group>
                             <Form.Label>Certificate Image URL</Form.Label>
                             <Form.Control
                                 type="file"
                                 accept="image/*"
                                 name="certImg"
-                                onChange={(e) => handleImage(e, 'certImg')}
+                                onChange={(e) => handleImage(e, 'certImg', 'certFile')}
                             />
                             <span style={{
                                 display: 'inline',
@@ -368,7 +438,7 @@ export default function EditForm({ project, onSave, addOrEdit }) {
                             }}>{formData.certImg}</span>
                         </Form.Group>
                     </Col>
-                    <Col md={6}>
+                    <Col md={4}>
                         <Form.Group>
                             <Form.Label>Certificate Link</Form.Label>
                             <Form.Control

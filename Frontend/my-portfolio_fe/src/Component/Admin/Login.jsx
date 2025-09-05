@@ -3,15 +3,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FaUser, FaLock } from "react-icons/fa";
 import "./Login.css"; // import file css riêng
 import { useNavigate } from "react-router-dom";
+import { login } from "../../Api/authApi";
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        alert(`Email: ${email}\nPassword: ${password}`);
+        const response = await login(email, password);
+        if (response.status === 200) {
+            localStorage.setItem('isLogin', 'true');
+            navigate('/dashboard');
+        }
     };
 
     return (
@@ -58,7 +63,7 @@ export default function Login() {
                         </div>
 
                         {/* Button */}
-                        <button type="submit" className="btn btn-primary w-100 login-btn mb-2" onClick={() => navigate('/dashboard')}>
+                        <button type="submit" className="btn btn-primary w-100 login-btn mb-2" onClick={() => handleSubmit}>
                             Login
                         </button>
                         <button type="button" className="btn btn-secondary w-100 login-btn" onClick={() => navigate('/')}>

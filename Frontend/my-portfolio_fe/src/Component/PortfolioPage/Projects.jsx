@@ -21,7 +21,6 @@ export default function Projects() {
   useEffect(() => {
     const fetchProject = async () => {
       const response = await getProject();
-      console.log(response.data)
       setProjects(response.data);
     }
     fetchProject();

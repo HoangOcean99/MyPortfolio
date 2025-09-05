@@ -5,6 +5,7 @@ import { verifyToken } from '../middlewares/authMiddleware.js';
 const router = express.Router();
 
 router.get('/getGeneral', getGeneralController);
+router.get('/getGeneralSecure', verifyToken, getGeneralController);
 router.put('/editGeneral', verifyToken, editGeneralController);
 
 export default router;
