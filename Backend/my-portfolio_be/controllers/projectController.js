@@ -13,8 +13,6 @@ export const getProjectsController = async (req, res, next) => {
 
 export const addProjectsController = async (req, res, next) => {
     try {
-        console.log("file:", req.file);   // Multer parse ra ở đây
-        console.log("body:", req.body);   // name, type, group ở đây
         const { title, desc, role, team, time, demo, github, type } = req.body;
         const file = req.file;
 
@@ -37,8 +35,6 @@ export const addProjectsController = async (req, res, next) => {
 
 export const editProjectsController = async (req, res, next) => {
     try {
-        console.log("file:", req.file);   // Multer parse ra ở đây
-        console.log("body:", req.body);   // name, type, group ở đây
         const { index, title, desc, role, team, time, demo, github, type } = req.body;
         const img = req.file;
 

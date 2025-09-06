@@ -8,6 +8,9 @@ import { editGeneralSecure, getGeneralSecure } from "../../Api/GeneralApi";
 import { addProjectSecure, deleteProjectSecure, editProjectSecure, getProjectSecure } from "../../Api/ProjectApi";
 import { addSkillSecure, deleteSkillSecure, editSkillSecure, getSkillSecure } from "../../Api/SkillApi";
 import { addCertSecure, deleteCertSecure, editCertiSecure, getCertiSecure } from "../../Api/CertificationApi";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function Dashboard() {
     const navigate = useNavigate();
@@ -18,133 +21,165 @@ export default function Dashboard() {
     const [projects, setProjects] = useState([]);
 
     const [certs, setCerts] = useState([]);
-
+    const fetchInfor = async () => {
+        const responseGeneral = await getGeneralSecure();
+        setUser(responseGeneral.data[0]);
+    }
+    const fetchProject = async () => {
+        const responseProject = await getProjectSecure();
+        setProjects(responseProject.data);
+    }
+    const fetchSkill = async () => {
+        const responseSkill = await getSkillSecure();
+        setSkills(responseSkill.data);
+    }
+    const fetchCertification = async () => {
+        const responseCert = await getCertiSecure();
+        setCerts(responseCert.data);
+    }
     useEffect(() => {
-        const fetchInfor = async () => {
-            const responseGeneral = await getGeneralSecure();
-            setUser(responseGeneral.data[0]);
-        }
-        const fetchProject = async () => {
-            const responseProject = await getProjectSecure();
-            setProjects(responseProject.data);
-        }
-        const fetchSkill = async () => {
-            const responseSkill = await getSkillSecure();
-            setSkills(responseSkill.data);
-        }
-        const fetchCertification = async () => {
-            const responseCert = await getCertiSecure();
-            setCerts(responseCert.data);
-        }
-        fetchInfor();
-        fetchSkill();
-        fetchProject();
-        fetchCertification();
+        const fetchAll = async () => {
+            await fetchInfor();
+            await fetchSkill();
+            await fetchProject();
+            await fetchCertification();
+        };
+
+        fetchAll();
     }, []);
+
 
     const [editing, setEditing] = useState(null);
     const [showForm, setShowForm] = useState(false);
     const [adding, setAdding] = useState(null);
 
     const handleGeneralInformation = async () => {
-        await editGeneralSecure(
-            user.linkCV,
-            user.yearCoding,
-            user.projectFinished,
-            user.GPA
-        );
+        try {
+            await editGeneralSecure(
+                user.linkCV,
+                user.yearCoding,
+                user.projectFinished,
+                user.GPA
+            );
+        } catch (error) {
+            toast.error(`Có lỗi xảy ra khi ${editing ? "cập nhật" : "thêm"} ${type}`);
+        } finally {
+            toast.success(`Cập nhật thành công!`);
+            await fetchInfor();
+        }
+
+
     }
     const handleSave = async (type, data) => {
-        console.log(data)
-        if (editing) {
-            const updated = [...(type === "skill" ? skills : type === "project" ? projects : certs)];
-            updated[editing.index] = data;
-            if (type === "skill") {
-                await editSkillSecure({
-                    index: skills[editing.index].id,
-                    file: data.fileSkill,
-                    name: data.nameSkill,
-                    type: data.typeSkill,
-                    group: data.groupSkill,
-                })
+        try {
+            if (editing) {
+                if (type === "skill") {
+                    await editSkillSecure({
+                        index: skills[editing.index].id,
+                        file: data.fileSkill,
+                        name: data.nameSkill,
+                        type: data.typeSkill,
+                        group: data.groupSkill,
+                    });
+                    await fetchSkill();
+                }
+                if (type === "project") {
+                    await editProjectSecure({
+                        index: projects[editing.index].id,
+                        title: data.title,
+                        desc: data.desc,
+                        file: data.fileProject,
+                        role: data.role,
+                        team: data.team,
+                        time: data.role,
+                        demo: data.demo,
+                        github: data.github,
+                        type: data.groupProject,
+                        stacks: data.ProjectStacks,
+                        respons: data.ProjectResponsibilities,
+                        achieve: data.ProjectAchievements,
+                        feats: data.ProjectFeatures
+                    });
+                    await fetchProject();
+                }
+                if (type === "cert") {
+                    await editCertiSecure({
+                        index: certs[editing.index].idCert,
+                        title: data.certTitle,
+                        file: data.certFile,
+                        link: data.certLink
+                    });
+                    await fetchCertification();
+                }
+                toast.success(`Cập nhật ${type} thành công!`);
+            } else if (adding) {
+                if (type === "skill") {
+                    await addSkillSecure({
+                        file: data.fileSkill,
+                        name: data.nameSkill,
+                        type: data.typeSkill,
+                        group: data.groupSkill,
+                    });
+                    await fetchSkill();
+                }
+                if (type === "project") {
+                    await addProjectSecure({
+                        title: data.title,
+                        desc: data.desc,
+                        file: data.fileProject,
+                        role: data.role,
+                        team: data.team,
+                        time: data.role,
+                        demo: data.demo,
+                        github: data.github,
+                        type: data.groupProject,
+                        stacks: data.ProjectStacks,
+                        respons: data.ProjectResponsibilities,
+                        achieve: data.ProjectAchievements,
+                        feats: data.ProjectFeatures
+                    });
+                    await fetchProject();
+                }
+                if (type === "cert") {
+                    await addCertSecure({
+                        title: data.certTitle,
+                        file: data.certFile,
+                        link: data.certLink
+                    });
+                    await fetchCertification();
+                }
+                toast.success(`Thêm ${type} thành công!`);
             }
-            if (type === "project") {
-                await editProjectSecure({
-                    index: projects[editing.index].id,
-                    title: data.title,
-                    desc: data.desc,
-                    file: data.fileProject,
-                    role: data.role,
-                    team: data.team,
-                    time: data.role,
-                    demo: data.demo,
-                    github: data.github,
-                    type: data.groupProject,
-                    stacks: data.ProjectStacks,
-                    respons: data.ProjectResponsibilities,
-                    achieve: data.ProjectAchievements,
-                    feats: data.ProjectFeatures
-                });
-            }
-            if (type === "cert") {
-                console.log(certs[editing.index])
-                await editCertiSecure({
-                    index: certs[editing.index].idCert,
-                    title: data.certTitle,
-                    file: data.certFile,
-                    link: data.certLink
-                });
-            }
-        } else if (adding) {
-            if (type === "skill") {
-                await addSkillSecure({
-                    file: data.fileSkill,
-                    name: data.nameSkill,
-                    type: data.typeSkill,
-                    group: data.groupSkill,
-                });
-            }
-            if (type === "project") {
-                await addProjectSecure({
-                    title: data.title,
-                    desc: data.desc,
-                    file: data.fileProject,
-                    role: data.role,
-                    team: data.team,
-                    time: data.role,
-                    demo: data.demo,
-                    github: data.github,
-                    type: data.groupProject,
-                    stacks: data.ProjectStacks,
-                    respons: data.ProjectResponsibilities,
-                    achieve: data.ProjectAchievements,
-                    feats: data.ProjectFeatures
-                });
-            }
-            if (type === "cert") {
-                console.log(data.certFile)
-                await addCertSecure({
-                    title: data.certTitle,
-                    file: data.certFile,
-                    link: data.certLink
-                });
-            }
+        } catch (error) {
+            toast.error(`Có lỗi xảy ra khi ${editing ? "cập nhật" : "thêm"} ${type}`);
+        } finally {
+            setEditing(null);
+            setAdding(null);
+            setShowForm(false);
         }
-        setEditing(null);
-        setAdding(null);
-        setShowForm(false);
     };
 
+
     const handleDelete = async (type, index) => {
-        if (type === "skill") {
-            await deleteSkillSecure(skills[index].id);
+        try {
+            if (type === "skill") {
+                await deleteSkillSecure(skills[index].id);
+                await fetchSkill();
+            }
+            if (type === "project") {
+                await deleteProjectSecure(projects[index].id);
+                await fetchProject();
+            }
+            if (type === "cert") {
+                await deleteCertSecure(certs[index].idCert);
+                await fetchCertification();
+            }
+        } catch (error) {
+            toast.error(`Có lỗi xảy ra khi xóa`);
+        } finally {
+            toast.success('Xóa thành công!')
         }
-        if (type === "project") {
-            await deleteProjectSecure(projects[index].id);
-        }
-        if (type === "cert") {
-            await deleteCertSecure(certs[index].idCert);
-        }
+
     };
 
     const handleLogout = async () => {
@@ -162,19 +197,7 @@ export default function Dashboard() {
             <h3 className="mt-4">General Information</h3>
             <Card className="p-4 shadow-sm mb-5 contain-gene">
                 {user && <div className="row g-3">
-                    <div className="col-md-6">
-                        <Form.Group>
-                            <Form.Label><strong>📄 CV Link</strong></Form.Label>
-                            <Form.Control
-                                type="file"
-                                accept="pdf/*"
-                                onChange={(e) => setUser({ ...user, linkCV: e.target.value })}
-                            />
-                            <span>{user.linkCV}</span>
-                        </Form.Group>
-                    </div>
-
-                    <div className="col-md-6">
+                    <div className="col-md-4">
                         <Form.Group>
                             <Form.Label><strong>✅ Projects Finished</strong></Form.Label>
                             <Form.Control
@@ -185,7 +208,7 @@ export default function Dashboard() {
                         </Form.Group>
                     </div>
 
-                    <div className="col-md-6">
+                    <div className="col-md-4">
                         <Form.Group>
                             <Form.Label><strong>💻 Years Coding</strong></Form.Label>
                             <Form.Control
@@ -197,7 +220,7 @@ export default function Dashboard() {
                         </Form.Group>
                     </div>
 
-                    <div className="col-md-6">
+                    <div className="col-md-4">
                         <Form.Group>
                             <Form.Label><strong>📊 GPA</strong></Form.Label>
                             <Form.Control
@@ -396,6 +419,18 @@ export default function Dashboard() {
                     <Button variant="secondary" onClick={() => setShowForm(false)}>Cancel</Button>
                 </Modal.Footer>
             </Modal>
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                style={{ zIndex: '999' }}
+            />
         </div >
     );
 }

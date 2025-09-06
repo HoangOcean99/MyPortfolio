@@ -27,8 +27,6 @@ export const editSkills = async (index, file, name, type, group) => {
 
     const { data: skills, errorSkills } = await supabase.from('Skills').select('image').eq('id', index);
     if (errorSkills) throw new Error(errorSkills.message);
-    console.log('image', skills[0].image);
-
     const dataRemove = await removeImage(skills[0].image, 'Skills');
     const { data, error } = await supabase.from('Skills').update(
         {

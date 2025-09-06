@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import './Header.css'
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { useNavigate } from "react-router-dom";
+import 'animate.css';
 
 
 // Smooth scroll helper
@@ -29,7 +30,7 @@ export default function HeaderHero({ toggleTheme }) {
     }, []);
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light">
+        <nav className="navbar navbar-expand-lg navbar-light animate__animated animate__fadeInDown">
             <div className="container">
                 <a className="navbar-brand fw-bold fs-4" href="#">Ocean's Portfolio</a>
 

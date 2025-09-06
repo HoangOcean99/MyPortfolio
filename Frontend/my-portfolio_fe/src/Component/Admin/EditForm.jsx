@@ -91,7 +91,6 @@ export default function EditForm({ project, onSave, addOrEditType }) {
 
     const handleImage = (e, name, fileName) => {
         const file = e.target.files[0];
-        console.log(file)
         if (file) {
             const url = URL.createObjectURL(file);
             setFormData((prev) => ({ ...prev, [name]: url }))

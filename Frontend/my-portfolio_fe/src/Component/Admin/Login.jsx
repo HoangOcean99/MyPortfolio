@@ -4,6 +4,9 @@ import { FaUser, FaLock } from "react-icons/fa";
 import "./Login.css"; // import file css riêng
 import { useNavigate } from "react-router-dom";
 import { login } from "../../Api/authApi";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -12,11 +15,16 @@ export default function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await login(email, password);
-        if (response.status === 200) {
-            localStorage.setItem('isLogin', 'true');
-            navigate('/dashboard');
+        try {
+            const response = await login(email, password);
+            if (response.status === 200) {
+                localStorage.setItem('isLogin', 'true');
+                navigate('/dashboard');
+            }
+        } catch (error) {
+            toast.error("You aren't my handsome admin. Return PORTFOLIO, please!");
         }
+
     };
 
     return (
@@ -63,7 +71,7 @@ export default function Login() {
                         </div>
 
                         {/* Button */}
-                        <button type="submit" className="btn btn-primary w-100 login-btn mb-2" onClick={() => handleSubmit}>
+                        <button type="submit" className="btn btn-primary w-100 login-btn mb-2">
                             Login
                         </button>
                         <button type="button" className="btn btn-secondary w-100 login-btn" onClick={() => navigate('/')}>
@@ -72,6 +80,18 @@ export default function Login() {
                     </form>
                 </div>
             </div>
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                style={{ zIndex: '999' }}
+            />
         </>
     );
 }

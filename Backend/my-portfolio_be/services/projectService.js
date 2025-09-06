@@ -103,7 +103,6 @@ export const editProject = async (index, title, desc, img, role, team, time, dem
 
     const { data: Projects, errorProjects } = await supabase.from('Projects').select('img').eq('id', index);
     if (errorProjects) throw new Error(errorProjects.message);
-    console.log('image', Projects[0].img);
 
     const dataRemove = await removeImage(Projects[0].img, 'Projects');
     const { data, error } = await supabase.from('Projects').update(

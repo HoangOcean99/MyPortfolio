@@ -101,6 +101,7 @@
     background-color: white;
     color: black;
 }
+
 .contain-chatRealtime .input-login img {
     background-size: cover;
     width: 40px;
@@ -199,6 +200,31 @@
     color: red;
 
 }
+
+.each-message.self {
+    justify-content: flex-end;
+    /* đưa tin nhắn sang phải */
+}
+
+.each-message.self div {
+    background-color: #4a90e2 !important;
+    /* màu tin nhắn của mình */
+    color: white;
+    text-align: right;
+}
+
+.each-message.self img {
+    order: 2;
+    /* ảnh nằm bên phải */
+    margin-left: 9px !important;
+    margin-right: 8px !important;
+}
+
+.each-message img {
+    margin-right: 0px !important;
+    margin-left: -8px !important;
+}
+
 
 @media (min-width: 1200px) {
     .contain-infor .button-logout {

@@ -4,6 +4,7 @@ import "./Projects.css";
 import Chest from "./Chest";
 import ProjectModal from "./ModalProject";
 import { getProject } from "../../Api/ProjectApi";
+import AnimateOnScroll from "../../Utils/AnimateOnScroll";
 
 export default function Projects() {
   const [filter, setFilter] = useState(-1);
@@ -31,16 +32,20 @@ export default function Projects() {
       <div className="container">
         <div className="row ">
           <div className="col-xxl-4 col-12 mt-3 mb-5 pt-5 d-flex justify-content-center">
-            <Chest setFilter={setFilter} />
+            <AnimateOnScroll animation={'animate__fadeInDownBig'}>
+              <Chest setFilter={setFilter} />
+            </AnimateOnScroll>
           </div>
 
           <div className="col-xxl-8 col-12 position-relative">
-            <h1
-              className={`empty-project ${filter !== -1 ? "fade-out" : ""}`}
-              style={{ opacity: filter === -1 ? 1 : 0 }}
-            >
-              Open the cabinet to explore my projects
-            </h1>
+            {/* <AnimateOnScroll animation={'animate__fadeInDownBig'}> */}
+              <h1
+                className={`empty-project ${filter !== -1 ? "fade-out" : ""}`}
+                style={{ opacity: filter === -1 ? 1 : 0 }}
+              >
+                Open the cabinet to explore my projects
+              </h1>
+            {/* </AnimateOnScroll> */}
 
             <AnimatePresence>
               {filter !== -1 && (
@@ -93,6 +98,7 @@ export default function Projects() {
                 </motion.div>
               )}
             </AnimatePresence>
+
 
             <ProjectModal
               show={modalShow}

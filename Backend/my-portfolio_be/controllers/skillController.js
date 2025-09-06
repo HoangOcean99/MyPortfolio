@@ -13,8 +13,6 @@ export const getSkillsConroller = async (req, res, next) => {
 
 export const addSkillsController = async (req, res, next) => {
     try {
-        console.log("file:", req.file);   // Multer parse ra ở đây
-        console.log("body:", req.body);   // name, type, group ở đây
         const { name, type, group } = req.body;
         const file = req.file;
 
@@ -31,8 +29,6 @@ export const addSkillsController = async (req, res, next) => {
 
 export const editSkillsController = async (req, res, next) => {
     try {
-        console.log("file:", req.file);   // Multer parse ra ở đây
-        console.log("body:", req.body);   // name, type, group ở đây
         const { index, name, type, group } = req.body;
         const file = req.file;
 

@@ -37,6 +37,5 @@ export const removeImage = async (url, folder) => {
         return null;
     }
 
-    console.log("Removed:", data);
     return data;
 };

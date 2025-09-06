@@ -19,3 +19,15 @@ export const editGeneral = async (linkCV, years, gpa, projects) => {
     if (error) throw new Error(error.message);
     return data;
 }
+
+export const addContact = async (fullname, email, message) => {
+    const { data, error } = await supabase.from('ContactMe').insert(
+        {
+            fullname: fullname,
+            email: email,
+            message: message,
+        }
+    )
+    if (error) throw new Error(error.message);
+    return data;
+}

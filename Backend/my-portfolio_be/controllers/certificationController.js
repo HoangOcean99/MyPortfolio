@@ -13,8 +13,6 @@ export const getCertiController = async (req, res, next) => {
 
 export const addCertiController = async (req, res, next) => {
     try {
-        console.log("file:", req.file);   
-        console.log("body:", req.body);   
         const { title, link } = req.body;
         const image = req.file;
 
@@ -31,8 +29,6 @@ export const addCertiController = async (req, res, next) => {
 
 export const editCertiController = async (req, res, next) => {
     try {
-        console.log("file:", req.file);   // Multer parse ra ở đây
-        console.log("body:", req.body);   // name, type, group ở đây
         const { index, title, link } = req.body;
         const image = req.file;
 

@@ -24,3 +24,12 @@ export const editGeneralSecure = async (linkCV, years, projects, gpa) => {
     })
     return response;
 }
+
+export const addContactSecure = async ({ fullname, email, message }) => {
+    const response = await axios.post(`${url}/general/addContact`, {
+        fullname: fullname,
+        email: email,
+        message: message
+    })
+    return response;
+}
