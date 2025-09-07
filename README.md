@@ -1,7 +1,7 @@
 # 🎯 Project Name
 
-MyPortfolio is repository of My portfolio website which intro me
-Technical tools: nodejs, reactjs, bootstrap, supabase, filebase
+- MyPortfolio is repository of My portfolio website which intro me
+- Technical tools: nodejs, reactjs, bootstrap, supabase, filebase
 
 ---
 
@@ -26,7 +26,7 @@ project/
 ## 🔧 Installation & Run
 ```bash
 # Clone the repository
-git clone https://github.com/username/repo-name.git
+git clone https://github.com/HoangOcean99/MyPortfolio.git
 
 # Navigate to the project folder
 cd backend
