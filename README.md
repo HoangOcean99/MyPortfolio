@@ -44,11 +44,11 @@ npm start
 ---
 
 ## 📖 Usage
-Run the application with the command above.
-Open your browser and go to http://localhost:3000 (or the configured port).
-Sign up or log in to access the features.
-Start exploring the main functionalities listed above.
-Do the same for the frontend.
+- Run the application with the command above.
+- Open your browser and go to http://localhost:3000 (or the configured port).
+- Sign up or log in to access the features.
+- Start exploring the main functionalities listed above.
+- Do the same for the frontend.
 ---
 
 ## 🤝 Contributing
@@ -62,6 +62,8 @@ Steps:
 
 ---
 
-## 📜 Giấy phép
-Dự án được phân phối theo giấy phép [MIT](LICENSE).  
+## 📜 License
+
+Distributed under the MIT
+ License.
 © 2025 HoangOcean99
