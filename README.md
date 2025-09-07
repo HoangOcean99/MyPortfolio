@@ -54,11 +54,11 @@ npm start
 ## 🤝 Contributing
 Contributions are welcome!
 Steps:
-  Fork the repository
-  Create a new branch (git checkout -b feature-xyz)
-  Commit your changes (git commit -m 'Add feature xyz')
-  Push to the branch (git push origin feature-xyz)
-  Open a Pull Request
+  - Fork the repository
+  - Create a new branch (git checkout -b feature-xyz)
+  - Commit your changes (git commit -m 'Add feature xyz')
+  - Push to the branch (git push origin feature-xyz)
+  - Open a Pull Request
 
 ---
 
