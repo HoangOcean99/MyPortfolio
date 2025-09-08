@@ -17,16 +17,21 @@ export default function Login() {
         e.preventDefault();
         try {
             const response = await login(email, password);
-            console.log(response)
-            if (response.message === 'Login successful') {
+            console.log(response);
+
+            // Lấy data từ response
+            const data = response.data;
+
+            if (data.message === 'Login successful') {
                 localStorage.setItem('isLogin', 'true');
                 navigate('/dashboard');
             }
         } catch (error) {
+            console.log(error);
             toast.error("You aren't my handsome admin. Return PORTFOLIO, please!");
         }
-
     };
+
 
     return (
         <>
