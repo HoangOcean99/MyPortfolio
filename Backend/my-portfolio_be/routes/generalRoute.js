@@ -1,5 +1,5 @@
 import express from 'express'
-import { getGeneralController, editGeneralController, addContactController } from '../controllers/GeneralController.js'
+import { getGeneralController, editGeneralController, addContactController } from '../controllers/generalController.js'
 import { verifyToken } from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
