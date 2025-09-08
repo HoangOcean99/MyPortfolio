@@ -16,23 +16,23 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await login(email, password);
-            console.log('Full response:', response);
-            console.log('Response data:', response.data);
+            const response = await login(email, password); // response chính là data
 
-            // Lấy từ response.data
-            if (response.data.message === "Login successful") {
+            console.log("Login response:", response); // { message, user, token }
+
+            if (response.message === "Login successful") {
                 localStorage.setItem('isLogin', 'true');
-                localStorage.setItem('token', response.data.token);
+                localStorage.setItem('token', response.token);
                 navigate('/dashboard');
             } else {
                 toast.error("Login failed");
             }
         } catch (error) {
-            console.log('Error:', error);
+            console.error("Login error:", error);
             toast.error("You aren't my handsome admin. Return PORTFOLIO, please!");
         }
     };
+
 
 
 
