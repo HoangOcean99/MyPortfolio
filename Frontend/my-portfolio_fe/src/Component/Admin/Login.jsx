@@ -17,20 +17,24 @@ export default function Login() {
         e.preventDefault();
         try {
             const response = await login(email, password);
-            console.log(response);
+            console.log('Full response:', response);
+            console.log('Response data:', response.data);
 
-            // Lấy data từ response
-            const data = response.data;
-
-            if (data.message === 'Login successful') {
+            // Lấy từ response.data
+            if (response.data.message === "Login successful") {
                 localStorage.setItem('isLogin', 'true');
+                localStorage.setItem('token', response.data.token);
                 navigate('/dashboard');
+            } else {
+                toast.error("Login failed");
             }
         } catch (error) {
-            console.log(error);
+            console.log('Error:', error);
             toast.error("You aren't my handsome admin. Return PORTFOLIO, please!");
         }
     };
+
+
 
 
     return (
