@@ -6,12 +6,15 @@ export const getCerti = async () => {
     const response = await axios.get(`${url}/certi/getCerti`)
     return response;
 }
+// Lấy token từ localStorage (FE lưu khi login)
+const getToken = () => localStorage.getItem("token");
+
 export const getCertiSecure = async () => {
     const response = await axios.get(`${url}/certi/getCertiSecure`, {
-        withCredentials: true,
-    })
+        headers: { Authorization: `Bearer ${getToken()}` }
+    });
     return response;
-}
+};
 
 export const addCertSecure = async ({ title, file, link }) => {
     const formData = new FormData();
@@ -20,10 +23,10 @@ export const addCertSecure = async ({ title, file, link }) => {
     formData.append("link", link);
 
     const response = await axios.post(`${url}/certi/addCertiSecure`, formData, {
-        withCredentials: true,
         headers: {
             "Content-Type": "multipart/form-data",
-        },
+            Authorization: `Bearer ${getToken()}`
+        }
     });
     return response;
 };
@@ -36,19 +39,17 @@ export const editCertiSecure = async ({ index, title, file, link }) => {
     formData.append("link", link);
 
     const response = await axios.put(`${url}/certi/editCertiSecure`, formData, {
-        withCredentials: true,
         headers: {
             "Content-Type": "multipart/form-data",
-        },
+            Authorization: `Bearer ${getToken()}`
+        }
     });
     return response;
 };
+
 export const deleteCertSecure = async (id) => {
     const response = await axios.delete(`${url}/certi/deleteCertiSecure/${id}`, {
-        withCredentials: true,
-        headers: {
-            "Content-Type": "multipart/form-data",
-        },
+        headers: { Authorization: `Bearer ${getToken()}` }
     });
     return response;
 };

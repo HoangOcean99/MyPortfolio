@@ -2,76 +2,64 @@ import axios from "axios";
 
 const url = import.meta.env.VITE_API_URL;
 
+// Lấy token từ localStorage
+const getToken = () => localStorage.getItem("token");
+
+// API public
 export const getProject = async () => {
-    const response = await axios.get(`${url}/projects/getProjects`)
+    const response = await axios.get(`${url}/projects/getProjects`);
     return response;
-}
+};
+
+// API secure
 export const getProjectSecure = async () => {
     const response = await axios.get(`${url}/projects/getProjectsSecure`, {
-        withCredentials: true,
-    })
+        headers: { Authorization: `Bearer ${getToken()}` }
+    });
     return response;
-}
+};
 
-
-export const addProjectSecure = async ({ title, desc, file, role, team, time, demo, github, type, stacks, respons, achieve, feats }) => {
+export const addProjectSecure = async (projectData) => {
     const formData = new FormData();
-    formData.append("title", title);
-    formData.append("desc", desc);
-    formData.append("file", file);
-    formData.append("role", role);
-    formData.append("team", team);
-    formData.append("time", time);
-    formData.append("demo", demo);
-    formData.append("github", github);
-    formData.append("type", type);
-
-    // Các mảng (stacks, respons, achieve, feats) cần stringify
-    formData.append("stacks", JSON.stringify(stacks || []));
-    formData.append("respons", JSON.stringify(respons || []));
-    formData.append("achieve", JSON.stringify(achieve || []));
-    formData.append("feats", JSON.stringify(feats || []));
-
+    for (const key in projectData) {
+        if (Array.isArray(projectData[key])) {
+            formData.append(key, JSON.stringify(projectData[key]));
+        } else {
+            formData.append(key, projectData[key]);
+        }
+    }
 
     const response = await axios.post(`${url}/projects/addProjectsSecure`, formData, {
-        withCredentials: true,
         headers: {
             "Content-Type": "multipart/form-data",
-        },
+            Authorization: `Bearer ${getToken()}`
+        }
     });
     return response;
 };
 
-export const editProjectSecure = async ({ index, title, desc, file, role, team, time, demo, github, type, stacks, respons, achieve, feats }) => {
+export const editProjectSecure = async (projectData) => {
     const formData = new FormData();
-    formData.append("index", index);
-    formData.append("title", title);
-    formData.append("desc", desc);
-    formData.append("file", file);
-    formData.append("role", role);
-    formData.append("team", team);
-    formData.append("time", time);
-    formData.append("demo", demo);
-    formData.append("github", github);
-    formData.append("type", type);
-
-    // Các mảng (stacks, respons, achieve, feats) cần stringify
-    formData.append("stacks", JSON.stringify(stacks));
-    formData.append("respons", JSON.stringify(respons));
-    formData.append("achieve", JSON.stringify(achieve));
-    formData.append("feats", JSON.stringify(feats));
+    for (const key in projectData) {
+        if (Array.isArray(projectData[key])) {
+            formData.append(key, JSON.stringify(projectData[key]));
+        } else {
+            formData.append(key, projectData[key]);
+        }
+    }
 
     const response = await axios.put(`${url}/projects/editProjectsSecure`, formData, {
-        withCredentials: true,
         headers: {
             "Content-Type": "multipart/form-data",
-        },
+            Authorization: `Bearer ${getToken()}`
+        }
     });
     return response;
 };
+
 export const deleteProjectSecure = async (id) => {
     const response = await axios.delete(`${url}/projects/deleteProjectsSecure/${id}`, {
-        withCredentials: true,
+        headers: { Authorization: `Bearer ${getToken()}` }
     });
     return response;
 };
