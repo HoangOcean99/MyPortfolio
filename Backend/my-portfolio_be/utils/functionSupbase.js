@@ -12,7 +12,6 @@ export const uploadImage = async (file, folder) => {
         });
 
     if (error) {
-        console.error("Upload error:", error);
         return null;
     }
 
@@ -33,7 +32,6 @@ export const removeImage = async (url, folder) => {
         .remove([filePath]);
 
     if (error) {
-        console.error("Remove error:", error);
         return null;
     }
 

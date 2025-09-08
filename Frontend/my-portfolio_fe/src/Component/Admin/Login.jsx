@@ -18,7 +18,6 @@ export default function Login() {
         try {
             const response = await login(email, password); // response chính là data
 
-            console.log("Login response:", response); // { message, user, token }
 
             if (response.message === "Login successful") {
                 localStorage.setItem('isLogin', 'true');
@@ -28,7 +27,6 @@ export default function Login() {
                 toast.error("Login failed");
             }
         } catch (error) {
-            console.error("Login error:", error);
             toast.error("You aren't my handsome admin. Return PORTFOLIO, please!");
         }
     };
