@@ -18,7 +18,7 @@ export default function Login() {
         try {
             const response = await login(email, password);
             console.log(response)
-            if (response.data.message === 'Login successful') {
+            if (response.message === 'Login successful') {
                 localStorage.setItem('isLogin', 'true');
                 navigate('/dashboard');
             }
