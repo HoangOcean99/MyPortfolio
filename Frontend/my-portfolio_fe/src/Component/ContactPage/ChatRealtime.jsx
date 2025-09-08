@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import imageMySelf from '../../assets/AnhMyself.jpg'
 import './ChatRealtime.css'
-import imageGoogle from '../../assets/google.png'
 import { auth, provider, db } from '../../Utils/firebase.js';
 import { signInWithPopup, signOut } from 'firebase/auth';
 import { collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from 'firebase/firestore';
@@ -81,7 +79,7 @@ export default function ChatRealTime() {
             </div>
 
             {!user && <div className='input-login'>
-                <button onClick={() => handleLogin()}><img src={imageGoogle} />Login by google</button>
+                <button onClick={() => handleLogin()}><img src={'/images/google.png'} />Login by google</button>
                 <p>Login to chat realtime</p>
             </div>}
             {user &&

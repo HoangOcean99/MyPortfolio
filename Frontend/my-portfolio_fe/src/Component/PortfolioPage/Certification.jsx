@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./Certification.css";
-import cerImage from '../../assets/Cer.jpg'
 import { getCerti } from "../../Api/CertificationApi";
 
 export default function Certification() {

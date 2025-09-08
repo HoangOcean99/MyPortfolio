@@ -4,11 +4,9 @@ import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeom
 import { Line2 } from "three/examples/jsm/lines/Line2.js";
 import { LineGeometry } from "three/examples/jsm/lines/LineGeometry.js";
 import { LineMaterial } from "three/examples/jsm/lines/LineMaterial.js";
-import ImagerdLight from "../../assets/ImageCardLight.jpg";
-import ImageCardDark from "../../assets/ImageCardDark.png";
 import './CanvasCard.css'
 
-export default function CanvasCard({ mode, imageUrl = (mode === "dark") ? ImageCardDark : ImagerdLight, cardSize = { w: 3, h: 4, t: 0.12 }, strapLength = -2 }) {
+export default function CanvasCard({ mode, imageUrl = (mode === "dark") ? '/images/ImageCardDark.png' : '/images/ImageCardLight.jpg', cardSize = { w: 3, h: 4, t: 0.12 }, strapLength = -2 }) {
   const mountRef = useRef(null);
   const rafRef = useRef(0);
 

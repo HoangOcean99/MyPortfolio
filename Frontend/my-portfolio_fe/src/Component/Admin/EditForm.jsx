@@ -70,7 +70,7 @@ export default function EditForm({ project, onSave, addOrEditType }) {
                 team: formData.team,
                 time: formData.time,
                 ProjectResponsibilities: formData.responsibilities,
-                demo: formData.title,
+                demo: formData.demo,
                 github: formData.github,
                 ProjectAchievements: formData.achievements,
                 fileProject: formData.fileProject,

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./IntroMyself.css";
-import imageMySelf from "../../assets/AnhMyself.jpg";
 import { ReactTyped } from "react-typed";
 import { getGeneral } from "../../Api/GeneralApi";
 import AnimateOnScroll from "../../Utils/AnimateOnScroll";
@@ -26,7 +25,7 @@ export default function AboutMe() {
                 <div className="flip-card-inner">
                   <div className="flip-card-front">
                     <img
-                      src={imageMySelf}
+                      src={'/images/AnhMyself.jpg'}
                       alt="Nguyễn Dương Hải"
                       className="img-fluid rounded shadow"
                       style={{ maxHeight: "550px", objectFit: "cover" }}

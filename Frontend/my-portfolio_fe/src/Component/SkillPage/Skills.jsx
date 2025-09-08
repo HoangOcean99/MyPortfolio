@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import './Skills.scss'
-import imageUser from '../../assets/AnhMyself.jpg'
 import { getSkill } from "../../Api/SkillApi";
 import AnimateOnScroll from "../../Utils/AnimateOnScroll";
 
