@@ -25,11 +25,12 @@ export const loginController = async (req, res, next) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            secure: isProd,                   // true khi deploy HTTPS, false khi local
-            sameSite: isProd ? 'none' : 'lax', // 'none' khi deploy để cross-site, 'lax' khi local
+            secure: true,
+            sameSite: 'None',  // chữ N hoa
             maxAge: 60 * 60 * 1000,
             path: '/'
         });
+
 
 
 
