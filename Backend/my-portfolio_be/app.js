@@ -17,6 +17,9 @@ app.use(errorHandlingMiddleware)
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'Welcome to my portfolio Backend API' })
 })
-app.listen(env.LOCAL_DEV_APP_PORT, env.LOCAL_DEV_APP_HOST, () => {
-  console.log(`Server is running on http://${env.LOCAL_DEV_APP_HOST}:${env.LOCAL_DEV_APP_PORT}`)
-})
+const PORT = process.env.PORT || env.LOCAL_DEV_APP_PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server is running on port ${PORT}`);
+});
+
