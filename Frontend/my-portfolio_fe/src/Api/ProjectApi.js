@@ -72,9 +72,6 @@ export const editProjectSecure = async ({ index, title, desc, file, role, team, 
 export const deleteProjectSecure = async (id) => {
     const response = await axios.delete(`${url}/projects/deleteProjectsSecure/${id}`, {
         withCredentials: true,
-        headers: {
-            "Content-Type": "multipart/form-data",
-        },
     });
     return response;
 };

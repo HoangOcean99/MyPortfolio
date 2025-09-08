@@ -21,10 +21,11 @@ export const loginController = async (req, res, next) => {
         // Gửi token về client bằng cookie httpOnly
         res.cookie("token", token, {
             httpOnly: true,
-            secure: process.env.BUILD_MODE !== 'dev', // true khi deploy HTTPS
-            sameSite: "strict",
-            maxAge: 60 * 60 * 1000 // 1h
+            secure: true,
+            sameSite: "none",    // cookie cross-site
+            maxAge: 60 * 60 * 1000
         });
+
 
         res.status(StatusCodes.OK).json({
             message: "Login successful",
