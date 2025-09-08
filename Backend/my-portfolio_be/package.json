@@ -5,12 +5,12 @@
   "private": true,
   "scripts": {
     "dev": "nodemon app.js",
-     "start": "node app.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.56.0",
     "bcrypt": "^6.0.0",
-    "cookie-parser": "~1.4.4",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "dotenv": "^17.2.1",
