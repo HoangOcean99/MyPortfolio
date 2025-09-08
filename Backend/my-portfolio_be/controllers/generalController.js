@@ -31,3 +31,4 @@ export const addContactController = async (req, res, next) => {
         next(new ApiError(StatusCodes.BAD_REQUEST, error.message));
     }
 };
+
