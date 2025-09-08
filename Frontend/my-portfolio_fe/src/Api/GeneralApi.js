@@ -7,6 +7,7 @@ export const getGeneral = async () => {
     return response;
 }
 export const getGeneralSecure = async () => {
+    console.log('url', url) 
     const response = await axios.get(`${url}/general/getGeneralSecure`, {
         withCredentials: true,
     })

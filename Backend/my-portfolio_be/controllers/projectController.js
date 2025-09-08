@@ -10,6 +10,15 @@ export const getProjectsController = async (req, res, next) => {
         next(new ApiError(StatusCodes.BAD_REQUEST, error.message));
     }
 }
+function safeParseArray(data) {
+    try {
+        const parsed = JSON.parse(data);
+        return Array.isArray(parsed) ? parsed : [];
+    } catch {
+        return [];
+    }
+}
+
 
 export const addProjectsController = async (req, res, next) => {
     try {
@@ -17,10 +26,11 @@ export const addProjectsController = async (req, res, next) => {
         const file = req.file;
 
         // Parse lại mảng từ JSON string
-        const stacks = JSON.parse(req.body.stacks || "[]");
-        const respons = JSON.parse(req.body.respons || "[]");
-        const achieve = JSON.parse(req.body.achieve || "[]");
-        const feats = JSON.parse(req.body.feats || "[]");
+        const stacks = safeParseArray(req.body.stacks);
+        const respons = safeParseArray(req.body.respons);
+        const achieve = safeParseArray(req.body.achieve);
+        const feats = safeParseArray(req.body.feats);
+
 
         if (!file) {
             throw new Error("File is required");
@@ -39,10 +49,11 @@ export const editProjectsController = async (req, res, next) => {
         const img = req.file;
 
         // Parse lại mảng từ JSON string
-        const stacks = JSON.parse(req.body.stacks || "[]");
-        const respons = JSON.parse(req.body.respons || "[]");
-        const achieve = JSON.parse(req.body.achieve || "[]");
-        const feats = JSON.parse(req.body.feats || "[]");
+        const stacks = safeParseArray(req.body.stacks);
+        const respons = safeParseArray(req.body.respons);
+        const achieve = safeParseArray(req.body.achieve);
+        const feats = safeParseArray(req.body.feats);
+
 
         if (!img) {
             throw new Error("File is required");

@@ -1,4 +1,4 @@
-import ChatRealTime from "./ChatRealtime";
+import ChatRealTime from "./chatRealtime";
 import SendContact from "./SendContact";
 import './MainContactPage.css';
 import { ToastContainer } from "react-toastify";

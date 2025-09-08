@@ -17,7 +17,8 @@ export default function Login() {
         e.preventDefault();
         try {
             const response = await login(email, password);
-            if (response.status === 200) {
+            console.log(response)
+            if (response.data.message === 'Login successful') {
                 localStorage.setItem('isLogin', 'true');
                 navigate('/dashboard');
             }

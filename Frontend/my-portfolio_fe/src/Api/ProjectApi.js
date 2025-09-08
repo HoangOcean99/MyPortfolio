@@ -27,10 +27,11 @@ export const addProjectSecure = async ({ title, desc, file, role, team, time, de
     formData.append("type", type);
 
     // Các mảng (stacks, respons, achieve, feats) cần stringify
-    formData.append("stacks", JSON.stringify(stacks));
-    formData.append("respons", JSON.stringify(respons));
-    formData.append("achieve", JSON.stringify(achieve));
-    formData.append("feats", JSON.stringify(feats));
+    formData.append("stacks", JSON.stringify(stacks || []));
+    formData.append("respons", JSON.stringify(respons || []));
+    formData.append("achieve", JSON.stringify(achieve || []));
+    formData.append("feats", JSON.stringify(feats || []));
+
 
     const response = await axios.post(`${url}/projects/addProjectsSecure`, formData, {
         withCredentials: true,
@@ -41,7 +42,7 @@ export const addProjectSecure = async ({ title, desc, file, role, team, time, de
     return response;
 };
 
-export const editProjectSecure = async ({index, title, desc, file, role, team, time, demo, github, type, stacks, respons, achieve, feats }) => {
+export const editProjectSecure = async ({ index, title, desc, file, role, team, time, demo, github, type, stacks, respons, achieve, feats }) => {
     const formData = new FormData();
     formData.append("index", index);
     formData.append("title", title);
