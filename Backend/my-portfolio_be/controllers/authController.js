@@ -1,7 +1,8 @@
 import { StatusCodes } from "http-status-codes";
 import { register, login } from "../services/authService.js";
 import ApiError from "../utils/apiError.js";
-const isProd = process.env.BUILD_MODE !== 'dev';
+
+const isProd = process.env.BUILD_MODE === 'prod';
 
 
 export const registerController = async (req, res, next) => {
@@ -24,8 +25,8 @@ export const loginController = async (req, res, next) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            secure: process.env.BUILD_MODE === 'prod', // true khi deploy
-            sameSite: 'none',                   // cho cross-site request
+            secure: isProd,                   // true khi deploy HTTPS, false khi local
+            sameSite: isProd ? 'none' : 'lax', // 'none' khi deploy để cross-site, 'lax' khi local
             maxAge: 60 * 60 * 1000,
             path: '/'
         });
