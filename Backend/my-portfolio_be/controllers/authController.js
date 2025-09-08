@@ -1,6 +1,8 @@
 import { StatusCodes } from "http-status-codes";
 import { register, login } from "../services/authService.js";
 import ApiError from "../utils/apiError.js";
+const isProd = process.env.BUILD_MODE !== 'dev';
+
 
 export const registerController = async (req, res, next) => {
     try {
@@ -19,12 +21,15 @@ export const loginController = async (req, res, next) => {
         const token = data.session.access_token;
 
         // Gửi token về client bằng cookie httpOnly
+
         res.cookie("token", token, {
             httpOnly: true,
-            secure: true,
-            sameSite: "none",    // cookie cross-site
-            maxAge: 60 * 60 * 1000
+            secure: isProd,      // true khi deploy (HTTPS), false khi local
+            sameSite: isProd ? 'none' : 'lax', // none cho cross-site (frontend local -> backend deploy), lax cho local
+            maxAge: 60 * 60 * 1000,
+            path: '/'
         });
+
 
 
         res.status(StatusCodes.OK).json({
