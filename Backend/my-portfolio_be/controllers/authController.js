@@ -24,11 +24,12 @@ export const loginController = async (req, res, next) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            secure: isProd,      // true khi deploy (HTTPS), false khi local
-            sameSite: isProd ? 'none' : 'lax', // none cho cross-site (frontend local -> backend deploy), lax cho local
+            secure: process.env.BUILD_MODE === 'prod', // true khi deploy
+            sameSite: 'none',                   // cho cross-site request
             maxAge: 60 * 60 * 1000,
             path: '/'
         });
+
 
 
 
@@ -45,7 +46,7 @@ export const logoutController = (req, res) => {
     // Xóa cookie token
     res.clearCookie('token', {
         httpOnly: true,
-        secure: process.env.BUILD_MODE !== 'dev', // true khi deploy HTTPS
+        secure: process.env.BUILD_MODE !== 'dev',
         sameSite: 'strict',
         path: '/'
     });
