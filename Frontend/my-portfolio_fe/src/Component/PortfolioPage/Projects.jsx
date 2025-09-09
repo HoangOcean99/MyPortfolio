@@ -81,7 +81,7 @@ export default function Projects() {
                           <div className="face face2">
                             <div className="content">
                               <h6 className="fw-bold">{p.title}</h6>
-                              <div className="card-subtitle mt-2">Web App</div>
+                              <div className="card-subtitle mt-2">{p.NameType}</div>
                               <p className="text-white-50">{p.desc}</p>
                               <div className="gap-2 mt-2 icon-div">
                                 {p.ProjectStacks.map((text, idx) => (
