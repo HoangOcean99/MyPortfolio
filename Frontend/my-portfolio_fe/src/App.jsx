@@ -41,7 +41,7 @@ function App() {
   if (loading) {
     return (
       <div class="contain-loading">
-        <h1>Please wait about 30 seconds...</h1>
+        <h1>Please wait about 30 seconds</h1>
         <p>Server is opening...</p>
         <div class="loader"></div>
       </div>
