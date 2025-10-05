@@ -7,7 +7,7 @@ import { getProject } from "../../Api/ProjectApi";
 import AnimateOnScroll from "../../Utils/AnimateOnScroll";
 
 export default function Projects() {
-  const [filter, setFilter] = useState(1);
+  const [filter, setFilter] = useState(-1);
   const [modalShow, setModalShow] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -43,7 +43,7 @@ export default function Projects() {
                 className={`empty-project ${filter !== -1 ? "fade-out" : ""}`}
                 style={{ opacity: filter === -1 ? 1 : 0 }}
               >
-                Open the cabinet to explore my projects
+                ⬅️ Open the cabinet to explore my projects
               </h1>
             {/* </AnimateOnScroll> */}
 
