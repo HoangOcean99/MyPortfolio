@@ -7,7 +7,7 @@ import { getProject } from "../../Api/ProjectApi";
 import AnimateOnScroll from "../../Utils/AnimateOnScroll";
 
 export default function Projects() {
-  const [filter, setFilter] = useState(0);
+  const [filter, setFilter] = useState(1);
   const [modalShow, setModalShow] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
